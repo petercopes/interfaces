@@ -1,0 +1,568 @@
+*{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato';
+    color: white;
+    text-decoration: none;
+}
+button {
+    all: unset;
+    cursor: pointer;
+  }
+  
+body{
+    background-color: rgb(38, 43, 56);
+
+}
+h1{
+    font-size: 60pt;
+}
+h2{
+    font-size: 20pt;
+}
+h2.sectionTitle {
+    margin: 10px;
+}
+p{
+    font-size: 14px;
+}
+
+nav{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: rgb(33, 37, 49);
+}
+.ph-10{
+    padding:0 10px;
+}
+.justify-fe{
+    justify-content: flex-end;
+}
+
+.backdrop{
+    width: 100vw;
+    height: 411vh;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.sidebar{
+    height: 100vh;
+    background-image: linear-gradient(to right, rgba(24,26,35,0.97), rgb(24 26 35));
+}
+.icon{
+    width: 30px;
+    height: 30px;
+
+}
+.icon-sm{
+    width: 20px;
+    height: 20px;
+}
+.icon-md{
+    width: 35px;
+    height: 35px;
+}
+.icon-xl{
+    width: 80px;
+    height: 80px;
+}
+
+nav .menu *,
+nav .logo *{
+    padding:0 5px ;
+    font-weight: 100;
+
+}
+.logo .icon{
+    width: 75px;
+    height: 60px;
+    padding: 0;
+}
+.PersonalizedGames{
+height: 500px;
+}
+section.gameSection{
+    padding-left: 10px;
+    padding: 20px;
+}
+section.gameSection.screen{
+    background-color: rgba(17, 19, 24, 0.7) 
+
+}
+.suggestionContainer{
+    width: 45%;
+    margin: 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 1;
+    background: inherit;
+    overflow: hidden;
+}
+.PersonalizedGames > .suggestionContainer:before {
+    background-image: linear-gradient(to bottom right, rgba(255,255,255,0.1), rgba(255,0,0,0));
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+.suggestionContainer > div{
+    margin: 40px 30px 20px 30px;
+}
+.friendsContainer.suggestionContainer{
+    margin: 0 20px 15px 0;
+    height: 100px;
+    background-image: linear-gradient(to  right, rgba(255,255,255,0.1), rgba(255,0,0,0));
+
+
+}
+.friendsContainer.suggestionContainer .gamecard{
+margin: 10px;
+height: auto;
+}
+.friendsContainer.suggestionContainer  .friendInfo{
+    margin: 10px 5px;
+}
+.suggestionContainer .gallery{
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+.myGames .gallery{
+    overflow-y:scroll ;
+    max-height: 296px;
+}
+.gallery .gamecard{
+    width: 29%;
+    height: 120px;
+    overflow: hidden;
+    margin: 10px 10px 10px 0;
+}
+.gallery .gamecardImage img{
+    height: auto;
+    width: auto;
+}
+.thin{
+    font-weight: 100;
+}
+.carrouselContainer{
+    overflow: scroll;
+    padding:5px;
+}
+.carrouselContainer h2{
+ margin: 5px;
+}
+.carrousel{
+    width: fit-content;
+}
+.carrouselContainer::-webkit-scrollbar{
+    display: none;
+}
+.gamecard{
+    width: 300px;
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 5pt solid rgba(138, 138, 138, 0.5);
+    margin: 5px 15px 5px 5px;
+}
+.gamecard .overlay{
+    height: inherit;
+    position: absolute;
+    width: 300px;
+    z-index: 1;
+    background-color: rgb(1 1 1 / 63%);
+    opacity: 0;
+}
+.suggestionContainer .gallery .gamecard{
+    border-width: 3pt;
+}
+.friendsContainer.suggestionContainer .gamecard .overlay{
+    height: 100px;
+}
+
+.gamecardImage{
+    position: relative;
+    object-fit: cover;
+    height: inherit;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 10px;
+}
+.gamecardImage .gameImage{
+    height: 200px;
+}
+.premium{
+    background-color: #FFD500;
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    z-index: 2;
+}
+.borderPremium{
+    border: 5pt solid #fada3d94;
+    border-radius: 15px;
+}
+.gameTitle{
+    color: white;
+    bottom: 10%;
+    position: absolute;
+    left: 5%;
+    z-index: 2;
+    opacity: 0;
+}
+.logOutButton{
+    border: 1px solid rgba(0, 217, 255, 0.7);
+}
+.logOutButton h2{
+    color:rgba(0, 217, 255, 0.7);
+
+}
+.logo h3{
+    font-size: 35pt;
+}
+
+.white{
+    filter: brightness(0) invert(1);
+}
+.grayscale{
+    filter: grayscale(1) brightness(1);
+}
+.flex{
+    display: flex;
+}
+.invisible{
+    display: none;
+}
+.justify-sb{
+    justify-content:space-between ;
+}
+.justify-sa{
+    justify-content:space-around ;
+}
+.justify-se{
+    justify-content: space-evenly;
+}
+.w40{
+    width: 40%;
+}
+.w60{
+    width: 60%;
+}
+.w25{
+    width: 25%;
+}
+.w10{
+    width: 10%;
+}
+.w50{
+    width: 50%;
+}
+.w100{
+    width: 100%;
+}
+.w75{
+    width: 75%;
+}
+footer{
+    margin-top: 40px;
+    padding: 20px 0;
+    background-color: rgba(23, 28, 37, 0.6);
+}
+.footer-section{
+    margin-bottom: 10px;
+    width: 157px;
+}
+footer a:hover{
+    text-decoration: underline;
+}
+.text-center *{
+    text-align: center;
+}
+.footer-section h3{
+    margin: 10px;
+}
+.footer-links{
+    margin: 5px;
+    width: fit-content;
+}
+
+.footer-links li{
+    margin: 5px;
+}
+.footer-form{
+    margin: 10px;
+}
+
+.division-line{
+    width: 2px;
+    background-color: white;
+    height: 90%;
+    align-self: center;
+}
+.col{
+    flex-direction: column;
+}
+.justfify-sa{
+    justify-content: space-around;
+}
+.justify-end{
+    justify-content: flex-end;
+}
+.align-center{
+    align-items: center;
+}
+.justify-center{
+    justify-content: center;
+}
+.align-stretch{
+    align-items: stretch;
+}
+.h100{
+    height: 100%;
+}
+/*------*/
+#FeaturedGames {
+    width: 100%;
+    height: 516px;
+    overflow: hidden;
+    position: relative;
+}
+
+.arrow {
+    background-color: aqua;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+}
+
+.left {
+    left: 15px;
+}
+
+.right {
+    right: 15px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.header-img {
+    width: 100%;
+    min-height: 516px;
+    align-self: center;
+}
+
+.header-game-title {
+    position: absolute;
+    bottom: 10%;
+    margin-left: 30px;
+}
+
+.breadcrumb *{
+    display: flex;
+    padding-right: 5px;
+    align-items: center;
+}
+.gameContainer{
+    margin:10px 0;
+    height: 60%;  
+}
+.gameContainer img{
+    margin: 10px 0;
+    width: 70%;
+}
+.gameExtras{
+    padding: 40px;
+    height: 50vh;
+}
+.container{
+    border-radius: 15px;
+    height: 100%;
+    background-color: #39424c67;
+    width: 85%;
+}
+#sectionHandler  button  img.icon-sm{
+    margin: 10px;
+    padding: 1px;
+}
+.icon-xs{
+    width: 15px;
+    height: 15px;
+}
+.p-5{
+    padding: 5px;
+}
+.p-10{
+    padding: 10px;
+}
+.p-20{
+    padding: 20px;
+}
+.gameIconImg{
+    height: 100px;
+    max-width: 115px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.gameIconImg img{
+    align-self: center;
+    height: 100%;
+}
+.m-5{
+    margin: 5%;
+}
+.m-5p{
+    margin: 5px;
+}
+.m-10{
+    margin: 10%;
+}
+.mb-5{
+    margin-bottom: 5%;
+}
+.mb-5p{
+    margin-bottom: 5px;
+}
+#contentAsync{
+    margin: 5% 10% 2% 10%;
+}
+p.gameInfo{
+    margin-top: 5px;
+    overflow: scroll;
+    max-height: 150px;
+}
+.messages{
+    border: 1px solid rgba(255,255,255,0.4);
+    overflow-y: scroll;
+    overflow-x: wrap;
+}
+.w90{
+    width: 90%;
+}
+.w80{
+    width: 80%;
+}
+.w20{
+    width: 20%;
+}
+.h90{
+    height: 90%;
+}
+.h80{
+    height: 80%;
+}
+.h70{
+    height: 70%;
+}
+.h10{
+    height: 10%;
+}
+.h50{
+    height: 50%;
+}
+.br-5{
+    border-radius: 5px;
+}
+.br-10{
+    border-radius: 10px;
+}
+.br-15{
+    border-radius: 15px;
+}
+.br-20{
+    border-radius: 20px;
+}
+.chatEntry{
+    padding: 1px 0;
+}
+.sendChatButton{
+    background-color: rgba(0, 217, 255, 0.4);
+    margin: 5px;
+}
+input {
+    background: none;
+    border: none;
+}
+  input:focus {
+    outline: none /* Removes the border when the input is clicked */
+  }
+.messages input{
+    margin-left: 5%;
+}
+
+#previousSection{
+    top:50%;
+    left: -3%;
+}
+#nextSection{
+    top:50%;
+    right: -3%;
+}
+.newGameSection{
+    height: 92vh;
+}
+.newGameSection h1{
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.nextSectionDown{
+    position: absolute;
+    bottom: 5%;
+    transform: rotate(180deg);
+}
+.sticky{
+    position: sticky;
+}
+.spaceSectionImage{
+    background-image: url("/assets/new-game/spacered.png");
+    height: 300vh;
+}
+.spaceSectionImage img{
+    top: 0;
+}
+.spaceSection{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.z-2{
+    z-index: 2;
+}
+.previousSectionUp{
+    position: absolute;
+    top: 5%;
+    transform: rotate(180deg);    
+}
+.rotated-90{
+    /* transform: rotate(90deg); */
+}
+.rotated-180{
+    transform: rotate(180deg);
+}
+.rotated-270{
+    transform: rotate(270deg);
+}
+.absolute{
+    position: absolute;
+}
+.relative{
+    position: relative;
+}
+.wrap{
+    flex-wrap: wrap;
+}
+.gamecard .visible{
+    opacity: 100;
+}
+#contentAsync .gallery{
+    max-height: 220px;
+    overflow-y: scroll;
+}
