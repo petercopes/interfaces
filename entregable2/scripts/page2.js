@@ -3,6 +3,11 @@ const sectionChat = document.getElementById("chatMessages");
 const sendMessageForm = document.getElementById("NewMessageForm");
 const nextSectionButton = document.getElementById("nextSection");
 const previousSectionButton = document.getElementById("previousSection");
+const menuButton = document.getElementById("MenuButton");
+const overlayMenu = document.getElementById("OverlayMenu");
+const closeSideBarMenuButton = document.getElementById(
+  "CloseSidebarMenuButton"
+);
 let currentSection = "info";
 const sections = ["info", "rules", "gallery"];
 const messages = [
@@ -20,8 +25,23 @@ const messages = [
   { user: "barbzzzz", message: "this looks awesoomeeee" },
   { user: "Jeannn", message: "i wanna play it now" },
 ];
+const openOverlay = () => {
+  overlayMenu.classList.add("ease-in-1");
+
+  setTimeout(() => {
+    overlayMenu.classList.remove("ease-out-1");
+  }, 0);
+};
+const closeOverlay = () => {
+  overlayMenu.classList.add("ease-out-1");
+  setTimeout(() => {
+    overlayMenu.classList.remove("ease-in-1");
+  }, 0);
+};
 window.addEventListener("DOMContentLoaded", () => {
   loadAsync("info");
+  menuButton.addEventListener("click", openOverlay);
+  closeSideBarMenuButton.addEventListener("click", closeOverlay);
   for (let section of sections) {
     const sectionButton = document.getElementById(`GameInfoSection${section}`);
     sectionButton.addEventListener("click", (e) => {
@@ -81,7 +101,6 @@ const loadAsync = async (content) => {
 };
 const loadChat = () => {
   for (message of messages) {
-    console.log(message);
     var randomColor = Math.floor(Math.random() * 16777215).toString(16);
     const userName = document.createElement("span");
 

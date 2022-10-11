@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="./../styles/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,30 +21,39 @@
           <div class="w30 logo flex align-center">
             <img
               class="icon"
-              src="/assets/icons/joystick-svgrepo-com.svg"
+              src="./../assets/icons/joystick-svgrepo-com.svg"
               alt="GameLogo"
             />
-            <h3>OGames</h3>
+            <h2>OGames</h2>
           </div>
         </a>
         <div class="flex w30 menu justify-end align-center">
-          <p>Search bar</p>
-          <div>
+          
+            <button id="searchButton" >
+              <img
+                src="./../assets/icons/search-svgrepo-com.svg"
+                class="icon white"
+                alt=""
+              />
+          
+          
+          
             <button id="MenuButton">
               <img
                 class="icon white"
-                src="/assets/icons/menu-svgrepo-com.svg"
+                src="./../assets/icons/menu-svgrepo-com.svg"
                 alt="Menu Button"
               />
             </button>
-          </div>
+          
+        </div>
         </div>
       </div>
       <div id="OverlayMenu" class="backdrop absolute flex justify-fe invisible">
-        <div class="flex col w40 sidebar p-10">
+        <div class="flex col sidebar p-10">
           <div class="flex justify-fe h10 p-10">
             <img
-              src="/assets/icons/close-svgrepo-com.svg"
+              src="./../assets/icons/close-svgrepo-com.svg"
               class="icon white"
               id="CloseSidebarMenuButton"
               alt="close sidebar"
@@ -53,7 +62,7 @@
           <div class="flex col align-center h90 justify-se">
             <div class="flex col align-center">
               <img
-                src="/assets/icons/profile-user-svgrepo-com.svg"
+                src="./../assets/icons/profile-user-svgrepo-com.svg"
                 class="icon-xl white"
                 alt=""
               />
@@ -63,7 +72,7 @@
               <ul>
                 <li class="flex align-center p-10">
                   <img
-                    src="/assets/icons/soonwithrightarrow-svgrepo-com.svg"
+                    src="./../assets/icons/soonwithrightarrow-svgrepo-com.svg"
                     class="icon-md white ph-10"
                     alt=""
                   />
@@ -71,7 +80,7 @@
                 </li>
                 <li class="flex align-center p-10">
                   <img
-                    src="/assets/icons/ox-game-svgrepo-com.svg"
+                    src="./../assets/icons/ox-game-svgrepo-com.svg"
                     class="icon-md white ph-10"
                     alt=""
                   />
@@ -79,7 +88,7 @@
                 </li>
                 <li class="flex align-center p-10">
                   <img
-                    src="/assets/icons/myspace-svgrepo-com.svg"
+                    src="./../assets/icons/myspace-svgrepo-com.svg"
                     class="icon-md white ph-10"
                     alt=""
                   />
@@ -87,7 +96,7 @@
                 </li>
                 <li class="flex align-center p-10">
                   <img
-                    src="/assets/icons/question-svgrepo-com.svg"
+                    src="./../assets/icons/question-svgrepo-com.svg"
                     class="icon-md grayscale ph-10"
                     alt=""
                   />
@@ -95,7 +104,7 @@
                 </li>
                 <li class="flex align-center p-10">
                   <img
-                    src="/assets/icons/settings-svgrepo-com.svg"
+                    src="./../assets/icons/settings-svgrepo-com.svg"
                     class="icon-md white ph-10"
                     alt=""
                   />
@@ -116,7 +125,7 @@
                   <a href=""
                     ><img
                       class="icon white"
-                      src="/assets/icons/instagram-svgrepo-com.svg"
+                      src="./../assets/icons/instagram-svgrepo-com.svg"
                       alt="Instagram"
                   /></a>
                 </li>
@@ -124,7 +133,7 @@
                   <a href=""
                     ><img
                       class="icon white"
-                      src="/assets/icons/facebook-svgrepo-com.svg"
+                      src="./../assets/icons/facebook-svgrepo-com.svg"
                       alt="Facebook"
                   /></a>
                 </li>
@@ -132,7 +141,7 @@
                   <a href=""
                     ><img
                       class="icon white"
-                      src="/assets/icons/twitter-logo-svgrepo-com.svg"
+                      src="./../assets/icons/twitter-logo-svgrepo-com.svg"
                       alt="Twitter"
                   /></a>
                 </li>
@@ -142,24 +151,23 @@
         </div>
       </div>
     </nav>
-    <main>
-      <div class="flex newGameSection relative w100">
-        <div class="spaceSection">
-          <div class="spaceSectionImage rotated-90">
-            <img
-              src="/assets/new-game/spaceship.svg"
-              class="z-2 sticky"
-              alt=""
-            />
-          </div>
-
-          <!-- <img
-            src="/assets/new-game/spacered.png"
-            class="w100 absolute rotated-90"
-            alt=""
-          /> -->
-        </div>
-      </div>
+    <main class="game-sections-container relative">
+      <a class="section-controller up z-3">
+        <img
+          id="previousGameSection"
+          src="./../assets/icons/left-arrow-svgrepo-com.svg"
+          class="icon-xl white absolute rotated-90"
+          alt=""
+        />
+      </a>
+      <section id="newGameAsync"></section>
+      <a class="section-controller z-3 down"
+        ><img
+          id="nextGameSection"
+          src="./../assets/icons/left-arrow-svgrepo-com.svg"
+          class="icon-xl white absolute rotated-270"
+          alt=""
+      /></a>
     </main>
     <footer class="flex justify-sb">
       <div class="footer-form w40 flex col justfify-sa align-center">
@@ -211,7 +219,7 @@
               <a href=""
                 ><img
                   class="icon white"
-                  src="/assets/icons/instagram-svgrepo-com.svg"
+                  src="./../assets/icons/instagram-svgrepo-com.svg"
                   alt="Instagram"
               /></a>
             </li>
@@ -219,7 +227,7 @@
               <a href=""
                 ><img
                   class="icon white"
-                  src="/assets/icons/facebook-svgrepo-com.svg"
+                  src="./../assets/icons/facebook-svgrepo-com.svg"
                   alt="Facebook"
               /></a>
             </li>
@@ -227,7 +235,7 @@
               <a href=""
                 ><img
                   class="icon white"
-                  src="/assets/icons/twitter-logo-svgrepo-com.svg"
+                  src="./../assets/icons/twitter-logo-svgrepo-com.svg"
                   alt="Twitter"
               /></a>
             </li>
@@ -235,6 +243,6 @@
         </div>
       </div>
     </footer>
-    <script src="./scripts/index.js"></script>
+    <script src="./../scripts/page3.js"></script>
   </body>
 </html>
