@@ -98,7 +98,6 @@ const handleCarrousel = (nextIndex) => {
 };
 
 const openOverlay = () => {
-  console.log("enters");
   overlayMenu.classList.add("ease-in-1");
 
   setTimeout(() => {
@@ -106,7 +105,6 @@ const openOverlay = () => {
   }, 0);
 };
 const closeOverlay = () => {
-  console.log("enters2");
   overlayMenu.classList.add("ease-out-1");
   setTimeout(() => {
     overlayMenu.classList.remove("ease-in-1");
@@ -134,7 +132,6 @@ window.addEventListener("DOMContentLoaded", () => {
       overlay?.classList.add("ease-in-fast");
     });
     gamecard.addEventListener("mouseleave", (e) => {
-      console.log(e.currentTarget.children[0]);
       const gameTitle = e.currentTarget.children[2];
       const overlay = e.currentTarget.children[0];
       gameTitle?.classList.remove("visible");
@@ -145,7 +142,6 @@ window.addEventListener("DOMContentLoaded", () => {
     if (gamecard.classList.contains("borderPremium")) {
       gamecard.addEventListener("click", (e) => {
         openBuyModal(e, gamecard);
-        console.log("pedro entra");
       });
     }
   });
@@ -153,8 +149,6 @@ window.addEventListener("DOMContentLoaded", () => {
 const hideSpinner = async () => {
   let counter = 0;
   let interval = setInterval(() => {
-    console.log(counter);
-
     counter++;
     percentage.innerHTML = counter;
     if (counter == 100) {

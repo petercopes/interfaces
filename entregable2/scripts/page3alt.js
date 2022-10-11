@@ -10,7 +10,6 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 const openOverlay = () => {
-  console.log("enters");
   overlayMenu.classList.add("ease-in-1");
 
   setTimeout(() => {
@@ -18,7 +17,6 @@ const openOverlay = () => {
   }, 0);
 };
 const closeOverlay = () => {
-  console.log("enters2");
   overlayMenu.classList.add("ease-out-1");
   setTimeout(() => {
     overlayMenu.classList.remove("ease-in-1");
@@ -75,29 +73,3 @@ const activateNavigation = () => {
   sections.forEach((section) => observer.observe(section));
 };
 activateNavigation();
-/* const stopScroll = (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-  e.stopImmediatePropagation();
-};
-const limitScroll = (e, indexVisibleSection) => {
-  console.log(e);
-  if (indexVisibleSection == 2) {
-    console.log(e.pageY);
-    console.log(window.pageYOffset);
-    console.log(window);
-    if (
-      window.pageYOffset <= 1950 &&
-      window.pageYOffset + e.deltaY < window.pageYOffset
-    ) {
-      //stopScroll(e);
-      window.scrollTo({ top: 1650, left: 0, behavior: "auto" });
-    } else if (
-      window.pageYOffset >= 2600 &&
-      window.pageYOffset + e.deltaY >= 2600
-    ) {
-      window.scrollTo({ top: 2380, left: 0, behavior: "auto" });
-    }
-  }
-};
- */

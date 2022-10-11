@@ -3,11 +3,9 @@ var basicTimeline = anime.timeline({
 });
 const textButtons = document.querySelectorAll(".text");
 var pathEls = document.querySelectorAll(".check");
-console.log(pathEls);
 
 for (var i = 0; i < pathEls.length; i++) {
   var pathEl = pathEls[i];
-  console.log(pathEl);
 
   var offset = anime.setDashoffset(pathEl);
   pathEl.setAttribute("stroke-dashoffset", offset);
@@ -108,7 +106,6 @@ document.querySelectorAll(".activate").forEach(function (element) {
   element.addEventListener("click", () => {
     basicTimeline.play();
     setTimeout(() => {
-      console.log("hey");
       backdropSection.classList.add("ease-out");
       setTimeout(() => {
         backdropSection.classList.remove("ease-in-1");
