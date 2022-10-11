@@ -10,7 +10,7 @@ const headerGames = [
   {
     title: "Outer Worlds",
     img: "assets/games/featured/outerworlds.jpg",
-    url: "./page3/index.html",
+    url: "page3/index.html",
   },
   {
     title: "The Last Of Us Part 1",
@@ -34,7 +34,7 @@ const loadHeaderGame = () => {
   headerCarrousel.innerHTML = "";
   const leftArrowButton = document.createElement("button");
   const leftArrow = document.createElement("img");
-  leftArrow.src = "./../assets/icons/left-arrow-svgrepo-com.svg";
+  leftArrow.src = "assets/icons/left-arrow-svgrepo-com.svg";
   leftArrow.classList.add("left", "icon-xl", "white", "absolute");
 
   leftArrowButton.appendChild(leftArrow);

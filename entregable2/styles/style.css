@@ -109,8 +109,8 @@ nav .logo *{
 }
 .buylogo{
     background-color: yellow;
-  -webkit-mask: url('/assets/icons/buy-svgrepo-com.svg') no-repeat center;
-  mask: url('/assets/icons/buy-svgrepo-com.svg') no-repeat center;
+  -webkit-mask: url('../assets/icons/buy-svgrepo-com.svg') no-repeat center;
+  mask: url('../assets/icons/buy-svgrepo-com.svg') no-repeat center;
 }
 .of-hidden{
     overflow: hidden;
@@ -653,10 +653,10 @@ input {
     height: 350vh;
 }
 .spaceSectionImage.imageBlue{
-    background: url("/assets/new-game/space-blue.png") 50% 0;
+    background: url("../assets/new-game/space-blue.png") 50% 0;
 }
 .spaceSectionImage.imageRed{
-    background: url("/assets/new-game/space-red.png") 50% 0;
+    background: url("../assets/new-game/space-red.png") 50% 0;
 }
 .spaceSectionImage img{
     top: 0;
