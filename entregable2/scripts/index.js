@@ -34,7 +34,7 @@ const loadHeaderGame = () => {
   headerCarrousel.innerHTML = "";
   const leftArrowButton = document.createElement("button");
   const leftArrow = document.createElement("img");
-  leftArrow.src = "assets/icons/left-arrow-svgrepo-com.svg";
+  leftArrow.src = "entregable2/assets/icons/left-arrow-svgrepo-com.svg";
   leftArrow.classList.add("left", "icon-xl", "white", "absolute");
 
   leftArrowButton.appendChild(leftArrow);
