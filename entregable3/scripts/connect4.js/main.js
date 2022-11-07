@@ -82,7 +82,9 @@ const handleFormSubmit = () => {
       drawPlayerTokens();
     } else {
       //drawBoard();
-
+      drawBoard();
+      drawPlayerTokens();
+      timerSection.classList.add("hidden");
       gameOverContainer.classList.remove("hidden");
       canvas.classList.remove("canvas");
       winnerTitle.innerHTML = winnerPlayer
@@ -440,29 +442,37 @@ const startTimer = () => {
   let counterMin = document.getElementById("MinLeft");
   let min = gameSize === 7 ? 4 : gameSize === 6 ? 3 : 2;
   counterSec.innerText = sec;
-  counterMin.innerText = min;
+  counterMin.innerText = "0" + min;
   let timer = setInterval(function () {
     if (!gameOver) {
       if (min > 0) {
         if (sec === 0) {
           min--;
           sec = 59;
-          counterMin.innerText = min;
+          counterMin.innerText = "0" + min;
           counterSec.innerText = sec;
         } else {
           sec--;
-          counterSec.innerText = sec;
+          if (sec < 10) {
+            counterSec.innerText = "0" + sec;
+          } else {
+            counterSec.innerText = sec;
+          }
         }
       } else {
         if (sec === 0) {
-          counterMin.innerText = min;
+          counterMin.innerText = "0" + min;
           counterSec.innerText = sec;
           time = 0;
           gameOver = true;
           clearInterval(timer);
         } else {
           sec--;
-          counterSec.innerText = sec;
+          if (sec < 10) {
+            counterSec.innerText = "0" + sec;
+          } else {
+            counterSec.innerText = sec;
+          }
         }
       }
     }

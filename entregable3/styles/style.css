@@ -1254,7 +1254,7 @@ form input[type=text]{
     z-index: 3;
 }
 #gameSectionSpace{
-    background-image: url("./../../assets/game-detail/background.png");
+    background-image: url("./../assets/game-detail/background.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
