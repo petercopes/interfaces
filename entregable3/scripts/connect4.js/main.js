@@ -7,15 +7,14 @@ const gameOverForm = document.getElementById("gameOverForm");
 const winnerTitle = document.getElementById("winner");
 const timerSection = document.getElementById("Timer");
 let winnerPlayer = null;
-const background = new Image();
-background.src = "./../../assets/game-detail/background.png";
+
 const player1 = {
   name: "Player 1",
-  imgSrc: "./../../assets/game-detail/spaceship1.png",
+  imgSrc: "./../../assets/game-detail/tiptip.png",
 };
 const player2 = {
   name: "Player 2",
-  imgSrc: "./../../assets/game-detail/spaceship2.png",
+  imgSrc: "./../../assets/game-detail/ralph.png",
 };
 
 let gameSize = 4;

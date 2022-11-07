@@ -1228,7 +1228,7 @@ html {
     padding: 5%;
 
 }
-form input[type=text]{
+#gameFormContainer form input[type=text]{
     font-size: 20pt;
     text-align: center;
     border: 1px solid rgba(255, 255, 255, .3);
