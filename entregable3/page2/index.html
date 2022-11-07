@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body class="flex col">
+    <nav class="flex col">
+      <div class="flex justify-sb ph-10">
+        <a href="../index.html">
+          <div class="w30 logo flex align-center">
+            <img
+              class="icon"
+              src="../assets/icons/joystick-svgrepo-com.svg"
+              alt="GameLogo"
+            />
+            <h2>OGames</h2>
+          </div>
+        </a>
+        <div class="flex w30 menu justify-end align-center">
+          
+            <button id="searchButton" >
+              <img
+                src="../assets/icons/search-svgrepo-com.svg"
+                class="icon white"
+                alt=""
+              />
+          
+          
+          
+            <button id="MenuButton">
+              <img
+                class="icon white"
+                src="../assets/icons/menu-svgrepo-com.svg"
+                alt="Menu Button"
+              />
+            </button>
+          
+        </div>
+        </div>
+      </div>
+      <div id="OverlayMenu" class="backdrop absolute flex justify-fe invisible">
+        <div class="flex col sidebar p-10">
+          <div class="flex justify-fe h10 p-10">
+            
+            <img
+              src="../assets/icons/close-svgrepo-com.svg"
+              class="icon white"
+              id="CloseSidebarMenuButton"
+              alt="close sidebar"
+            />
+          
+          </div>
+          
+          <div class="flex col align-center h90 justify-se">
+            <div class="flex col align-center">
+              <img
+                src="../assets/icons/profile-user-svgrepo-com.svg"
+                class="icon-xl white"
+                alt=""
+              />
+              <h2 class="p-10">Peter96</h2>
+            </div>
+            <div>
+              <ul>
+                <li class="flex align-center p-10">
+                  <img
+                    src="../assets/icons/soonwithrightarrow-svgrepo-com.svg"
+                    class="icon-md white ph-10"
+                    alt=""
+                  />
+                  <h2>Upcoming Games</h2>
+                </li>
+                <li class="flex align-center p-10">
+                  <img
+                    src="../assets/icons/ox-game-svgrepo-com.svg"
+                    class="icon-md white ph-10"
+                    alt=""
+                  />
+                  <h2>Categories</h2>
+                </li>
+                <li class="flex align-center p-10">
+                  <img
+                    src="../assets/icons/myspace-svgrepo-com.svg"
+                    class="icon-md white ph-10"
+                    alt=""
+                  />
+                  <h2>Friends</h2>
+                </li>
+                <li class="flex align-center p-10">
+                  <img
+                    src="../assets/icons/question-svgrepo-com.svg"
+                    class="icon-md grayscale ph-10"
+                    alt=""
+                  />
+                  <h2>Help</h2>
+                </li>
+                <li class="flex align-center p-10">
+                  <img
+                    src="../assets/icons/settings-svgrepo-com.svg"
+                    class="icon-md white ph-10"
+                    alt=""
+                  />
+                  <h2>Settings</h2>
+                </li>
+              </ul>
+            </div>
+            <div class="flex justify-center">
+              <button
+                class="logOutButton p-10 flex align-center justify-center br-10"
+              >
+                <h2 class="ph-10">Log Out</h2>
+              </button>
+            </div>
+            <div class="flex w50 justify-center">
+              <ul class="flex w80 justfify-sa">
+                <li>
+                  <a href=""
+                    ><img
+                      class="icon white"
+                      src="../assets/icons/instagram-svgrepo-com.svg"
+                      alt="Instagram"
+                  /></a>
+                </li>
+                <li>
+                  <a href=""
+                    ><img
+                      class="icon white"
+                      src="../assets/icons/facebook-svgrepo-com.svg"
+                      alt="Facebook"
+                  /></a>
+                </li>
+                <li>
+                  <a href=""
+                    ><img
+                      class="icon white"
+                      src="../assets/icons/twitter-logo-svgrepo-com.svg"
+                      alt="Twitter"
+                  /></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <div id="gameFormContainer" class="flex col absolute align-center justify-center w100 mt-5 h60 br-15 ">
+        <form id="gameForm" class="flex col absolute align-center justify-center w60 mt-10 br-15 h80">
+          <select name="gameSize" id="" class="w20 h10  ">
+            <option value="4">4 In Lines</option>
+            <option value="5">5 In Line</option>
+            <option value="6">6 In Line</option>
+            <option value="7">7 In Line</option>
+          </select>
+          <div class="w100 h80 flex justfify-sa">
+            <div class="w50 flex col justify-center align-center">
+              <div class="p-10 mt-5 mb-5" >
+                <input type="text" name="player1Name" id="" placeholder="Player 1" >
+              </div>
+              <div class="mb-15 w50">
+                <input type="radio" name="player1Image" id="char1-1"
+                    value="./../assets/game-detail/_Group_ (1).png" checked>
+                <label for="char1-1"><img src="./../assets/game-detail/_Group_ (1).png"></label>
+
+                <input type="radio" name="player1Image" id="char1-2"
+                    value="./../assets/game-detail/space background.png">
+                <label for="char1-2"><img src="./../assets/game-detail/space background.png"></label>
+
+                <input type="radio" name="player1Image" id="char1-3"
+                    value="./../assets/game-detail/spaceship1.png">
+                <label for="char1-3"><img src="./../assets/game-detail/spaceship1.png"></label>
+
+                <input type="radio" name="player1Image" id="char1-4"
+                    value="./../assets/game-detail/spaceship2.png">
+                <label for="char1-4"><img src="./../assets/game-detail/spaceship2.png"></label>
+
+                <input type="radio" name="player1Image" id="char1-5"
+                    value="./../assets/game-detail/spaceship3.png">
+                <label for="char1-5"><img src="./../assets/game-detail/spaceship3.png"></label>
+
+                <input type="radio" name="player1Image" id="char1-6"
+                    value="./../assets/game-detail/spaceship4.png">
+                <label for="char1-6"><img src="./../assets/game-detail/spaceship4.png"></label>
+
+                <input type="radio" name="player1Image" id="char1-7"
+                    value="./../assets/game-detail/spaceship5.png">
+                <label for="char1-7"><img src="./../assets/game-detail/spaceship5.png"></label>
+
+                <input type="radio" name="player1Image" id="char1-8"
+                    value="./../assets/game-detail/spaceship6.png">
+                <label for="char1-8"><img src="./../assets/game-detail/spaceship6.png"></label>
+            </div>
+            </div>
+            <div class="w50 flex col justify-center align-center">
+              <div class="p-10 mt-5 mb-5" >
+                <input type="text" name="player2Name" id="" placeholder="Player 2" >
+              </div>
+              <div class=" mb-15 w50">
+                <input type="radio" name="player2Image" id="char2-1"
+                    value="./../assets/game-detail/_Group_ (1).png">
+                <label for="char2-1"><img src="./../assets/game-detail/_Group_ (1).png"></label>
+
+                <input type="radio" name="player2Image" id="char2-2"
+                    value="./../assets/game-detail/space background.png" checked>
+                <label for="char2-2"><img src="./../assets/game-detail/space background.png"></label>
+
+                <input type="radio" name="player2Image" id="char2-3"
+                    value="./../assets/game-detail/spaceship1.png">
+                <label for="char2-3"><img src="./../assets/game-detail/spaceship1.png"></label>
+
+                <input type="radio" name="player2Image" id="char2-4"
+                    value="./../assets/game-detail/spaceship2.png">
+                <label for="char2-4"><img src="./../assets/game-detail/spaceship2.png"></label>
+
+                <input type="radio" name="player2Image" id="char2-5"
+                    value="./../assets/game-detail/spaceship3.png">
+                <label for="char2-5"><img src="./../assets/game-detail/spaceship3.png"></label>
+
+                <input type="radio" name="player2Image" id="char2-6"
+                    value="./../assets/game-detail/spaceship4.png">
+                <label for="char2-6"><img src="./../assets/game-detail/spaceship4.png"></label>
+                <input type="radio" name="player2Image" id="char2-7"
+                    value="./../assets/game-detail/spaceship5.png">
+                <label for="char2-7"><img src="./../assets/game-detail/spaceship5.png"></label>
+
+                <input type="radio" name="player2Image" id="char2-8"
+                    value="./../assets/game-detail/spaceship6.png">
+                <label for="char2-8"><img src="./../assets/game-detail/spaceship6.png"></label>
+            </div>
+            </div>
+          </div>
+            <div class="btn align-center btn-white justify-center btn-animate br-30 centered flex ml-20 w20 h20" >
+              <button type="submit"><h2>Play</h2></button>
+            </div>
+        </form>
+      </div>
+      <div id="gameOverContainer" class="flex col absolute align-center justify-center w100 mt-5 h60 br-15 hidden">
+        <form id="gameOverForm" class="flex col absolute align-center justify-center w30  br-15 h30">
+          <h2 id="winner" class="h20 mb-15"></h2>
+            <div class="btn align-center btn-white justify-center btn-animate br-30 centered flex absolute centered w40 h40 ph-10"  >
+              <button type="submit"><h2>Restart</h2></button>
+            </div>
+        </form>
+      </div>
+      <section id="gameSectionSpace" class="gameSection screen">
+        <div  class="breadcrumb">
+          <ul>
+            <li><a href="/index.html">Inicio</a></li>
+            <li>
+              <img
+                src="../assets/icons/breadcrumbs-svgrepo-com.svg"
+                alt=""
+                class="icon white"
+              />
+            </li>
+            <li>Aventuras</li>
+            <li>
+              <img
+                src="../assets/icons/breadcrumbs-svgrepo-com.svg"
+                alt=""
+                class="icon white"
+              />
+            </li>
+            <li>Outer Worlds</li>
+          </ul>
+        </div>
+        <div id="Timer" class="flex justify-center align-center w100 relative hidden">
+          <div class="absolute centered">
+            <div class="flex">
+              <h2 id="MinLeft"></h2>
+              <h2>:</h2>            
+              <h2 id="SecLeft"></h2>
+            </div>
+          </div>
+          <form id="restartForm" class="flex col  w25 br-15 absolute centered">
+              <div class="btn  btn-white br-15  w25 absolute centered"  >
+                <button type="submit"><h2>Restart</h2></button>
+              </div>
+          </form>
+        </div>
+          <div class="gameContainer flex justify-center align-center" id="gameContainerDiv">
+            <canvas id="canvas"></canvas>
+        </div>
+      </section>
+      <section class="gameExtras flex">
+        <article class="gameInfoContainer w50 flex align-center justify-center">
+          <div class="container w85 relative flex col align-center justify-sb">
+            <div id="contentAsync" class="flex col justify-se h90"></div>
+            <button class="">
+              <img
+                src="../assets/icons/left-arrow-svgrepo-com.svg"
+                id="nextSection"
+                class="icon white absolute rotated-180"
+                alt=""
+              />
+            </button>
+            <button>
+              <img
+                src="../assets/icons/left-arrow-svgrepo-com.svg"
+                id="previousSection"
+                class="icon white absolute"
+                alt=""
+              />
+            </button>
+
+            <div id="sectionHandler" class="flex align-center">
+              <button>
+                <img
+                  src="../assets/icons/dot-svgrepo-com.svg"
+                  id="GameInfoSectioninfo"
+                  class="white icon-sm"
+                  alt=""
+                />
+              </button>
+              <button>
+                <img
+                  src="../assets/icons/dot-svgrepo-com.svg"
+                  id="GameInfoSectionrules"
+                  class="white icon-sm"
+                  alt=""
+                />
+              </button>
+              <button>
+                <img
+                  src="../assets/icons/dot-svgrepo-com.svg"
+                  id="GameInfoSectiongallery"
+                  class="white icon-sm"
+                  alt=""
+                />
+              </button>
+            </div>
+          </div>
+        </article>
+        <article class="w50 flex align-center justify-center">
+          <div class="container w85 flex col align-center justify-se">
+            <div
+              id="chatMessages"
+              class="messages w90 br-15 h70 flex col p-10"
+            ></div>
+            <form
+              id="NewMessageForm"
+              action=""
+              class="w100 flex justify-center h10"
+            >
+              <div class="messages w90 br-20 h100 flex justify-sb align-center">
+                <input
+                  type="text"
+                  class="w90"
+                  name="newMessage"
+                  id="newMessageEntry"
+                  placeholder="Leave a message"
+                />
+                <button
+                  type="submit"
+                  class="flex align-center justify-se sendChatButton br-20 w20 h80"
+                  id="newMessageButton"
+                >
+                  <p>send</p>
+                  <img
+                    src="../assets/icons/send-svgrepo-com.svg"
+                    class="icon-sm white"
+                    alt=""
+                  />
+                </button>
+              </div>
+            </form>
+          </div>
+        </article>
+      </section>
+    </main>
+    <footer class="flex justify-sb">
+      <div class="footer-form w40 flex col justfify-sa align-center">
+        <h3>Subscribe to the Newsletter</h3>
+        <div>
+          <form action="">
+            <input type="text" placeholder="Place your email here" />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="division-line"></div>
+      <div class="flex justify-se w60">
+        <div class="footer-section text-center">
+          <h3>About Us</h3>
+          <ul>
+            <li>Team Members</li>
+            <li>Other Projects</li>
+            <li>Our Mission</li>
+            <li>Contact Us</li>
+          </ul>
+        </div>
+        <div class="division-line"></div>
+        <div class="footer-section text-center">
+          <h3>Policy</h3>
+          <ul>
+            <li>Sale</li>
+            <li>Purchases</li>
+            <li>Regret Button</li>
+            <li>Refunds</li>
+          </ul>
+        </div>
+        <div class="division-line"></div>
+        <div class="footer-section text-center">
+          <h3>Other</h3>
+          <ul>
+            <li>FAQ's</li>
+            <li>Terms</li>
+            <li>Security</li>
+            <li>FeedBack</li>
+          </ul>
+        </div>
+        <div class="division-line"></div>
+        <div
+          class="footer-section footer-links flex col justfify-se align-center"
+        >
+          <ul>
+            <li>
+              <a href=""
+                ><img
+                  class="icon white"
+                  src="../assets/icons/instagram-svgrepo-com.svg"
+                  alt="Instagram"
+              /></a>
+            </li>
+            <li>
+              <a href=""
+                ><img
+                  class="icon white"
+                  src="../assets/icons/facebook-svgrepo-com.svg"
+                  alt="Facebook"
+              /></a>
+            </li>
+            <li>
+              <a href=""
+                ><img
+                  class="icon white"
+                  src="../assets/icons/twitter-logo-svgrepo-com.svg"
+                  alt="Twitter"
+              /></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script src="./../scripts/connect4.js/main.js"></script>
+    <script src="./../scripts/page2.js"></script>
+  </body>
+</html>
