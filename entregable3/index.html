@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="flex col">
+      <div class="flex justify-sb ph-10">
+        <a href="index.html">
+          <div class="w30 logo flex align-center">
+            <img
+              class="icon"
+              src="assets/icons/joystick-svgrepo-com.svg"
+              alt="GameLogo"
+            />
+            <h2>OGames</h2>
+          </div>
+        </a>
+        <div class="flex w30 menu justify-end align-center">
+          
+            <button id="searchButton" >
+              <img
+                src="assets/icons/search-svgrepo-com.svg"
+                class="icon white"
+                alt=""
+              />
+          
+          
+          
+            <button id="MenuButton">
+              <img
+                class="icon white"
+                src="assets/icons/menu-svgrepo-com.svg"
+                alt="Menu Button"
+              />
+            </button>
+          
+        </div>
+        </div>
+      </div>
+      <div id="OverlayMenu" class="backdrop absolute flex justify-fe invisible">
+        <div class="flex col sidebar p-10">
+          <div class="flex justify-fe h10 p-10">
+            <img
+              src="assets/icons/close-svgrepo-com.svg"
+              class="icon white"
+              id="CloseSidebarMenuButton"
+              alt="close sidebar"
+            />
+          </div>
+          <div class="flex col align-center h90 justify-se">
+            <div class="flex col align-center">
+              <img
+                src="assets/icons/profile-user-svgrepo-com.svg"
+                class="icon-xl white"
+                alt=""
+              />
+              <h2 class="p-10">Peter96</h2>
+            </div>
+            <div>
+              <ul>
+                <li class="flex align-center p-10">
+                  <img
+                    src="assets/icons/soonwithrightarrow-svgrepo-com.svg"
+                    class="icon-md white ph-10"
+                    alt=""
+                  />
+                  <h2>Upcoming Games</h2>
+                </li>
+                <li class="flex align-center p-10">
+                  <img
+                    src="assets/icons/ox-game-svgrepo-com.svg"
+                    class="icon-md white ph-10"
+                    alt=""
+                  />
+                  <h2>Categories</h2>
+                </li>
+                <li class="flex align-center p-10">
+                  <img
+                    src="assets/icons/myspace-svgrepo-com.svg"
+                    class="icon-md white ph-10"
+                    alt=""
+                  />
+                  <h2>Friends</h2>
+                </li>
+                <li class="flex align-center p-10">
+                  <img
+                    src="assets/icons/question-svgrepo-com.svg"
+                    class="icon-md grayscale ph-10"
+                    alt=""
+                  />
+                  <h2>Help</h2>
+                </li>
+                <li class="flex align-center p-10">
+                  <img
+                    src="assets/icons/settings-svgrepo-com.svg"
+                    class="icon-md white ph-10"
+                    alt=""
+                  />
+                  <h2>Settings</h2>
+                </li>
+              </ul>
+            </div>
+            <div class="flex justify-center">
+              <button
+                class="logOutButton p-10 flex align-center justify-center br-10"
+              >
+                <h2 class="ph-10">Log Out</h2>
+              </button>
+            </div>
+            <div class="flex w50 justify-center">
+              <ul class="flex w80 justfify-sa">
+                <li>
+                  <a href=""
+                    ><img
+                      class="icon white"
+                      src="assets/icons/instagram-svgrepo-com.svg"
+                      alt="Instagram"
+                  /></a>
+                </li>
+                <li>
+                  <a href=""
+                    ><img
+                      class="icon white"
+                      src="assets/icons/facebook-svgrepo-com.svg"
+                      alt="Facebook"
+                  /></a>
+                </li>
+                <li>
+                  <a href=""
+                    ><img
+                      class="icon white"
+                      src="assets/icons/twitter-logo-svgrepo-com.svg"
+                      alt="Twitter"
+                  /></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <section
+        id="backdropSection"
+        class="fixed h100 w100 z-3 flex align-center justify-center backdropSection"
+      >
+        <div class="absolute flex justify-center align-center">
+          <div class="lds-roller">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+
+          <h3 class="absolute centered transformY50" id="percentage"></h3>
+        </div>
+
+        <div class="w50 h70 br-20 buyModal flex col of-hidden invisible">
+          <div class="h40 flex align-center of-hidden">
+            <img
+              src="assets/games/accion/uncharted-4k-game-zr.jpeg"
+              class="w100"
+              alt=""
+            />
+          </div>
+          <div class="flex align-center justify-sb w100 desktop">
+            <div class="flex col">
+              <h1 class="smaller ph-20 pt-10">Uncharted 3</h1>
+              <h3 class="ph-20 pt-10 c-yellow">$42,50</h3>
+            </div>
+            <div
+              class="flex align-center justify-center align-self-stretch w40 relative"
+            >
+              <div class="buyButtonAnimated flex justify-center">
+                <button
+                  class="buyButton p-5 br-15 w75 flex align-center buyModal justify-sa"
+                >
+                  <h1 class="smaller c-yellow m-5">Buy</h1>
+                  <img
+                    src="assets/icons/shopping-cart-svgrepo-com.svg"
+                    class="icon-md pt-10"
+                    alt=""
+                  />
+                </button>
+              </div>
+              <div class="progress-bar"></div>
+              <svg
+                x="0px"
+                y="0px"
+                viewBox="0 0 25 30"
+                class="activate"
+                style="enable-background: new 0 0 25 30"
+              >
+                <path class="check" d="M2,19.2C5.9,23.6,9.4,28,9.4,28L23,2" />
+              </svg>
+            </div>
+          </div>
+          <div class="flex align-center col align-stretch w100 mobile">
+            <div class="flex col">
+              <h1 class="smaller ph-20 pt-10">Uncharted 3</h1>
+              <h3 class="ph-20 pt-10 c-yellow">$42,50</h3>
+            </div>
+            <div
+              class="flex align-center justify-center align-self-stretch w100 buyButtonAnimatedContainer relative"
+            >
+              <div class="buyButtonAnimated flex justify-center">
+                <button
+                  class="buyButton p-5 br-15 w75 flex align-center buyModal justify-sa"
+                >
+                  <h1 class="smaller c-yellow m-5">Buy</h1>
+                  <img
+                    src="assets/icons/shopping-cart-svgrepo-com.svg"
+                    class="icon-md pt-10"
+                    alt=""
+                  />
+                </button>
+              </div>
+              <div class="progress-bar"></div>
+              <svg
+                x="0px"
+                y="0px"
+                viewBox="0 0 25 30"
+                class="activate"
+                style="enable-background: new 0 0 25 30"
+              >
+                <path class="check" d="M2,19.2C5.9,23.6,9.4,28,9.4,28L23,2" />
+              </svg>
+            </div>
+          </div>
+          <div class="flex justify-sb w25 pv-10 ph-10">
+            <div class="m-5p ph-10 br-10 categoryCard"><p>Acción</p></div>
+            <div class="m-5p ph-10 br-10 categoryCard"><p>Aventura</p></div>
+          </div>
+          <div class="w flex col ph-20 pv-10">
+            <h3 class="pv-10"><b> Gallery</b></h3>
+            <div class="carrouselContainer">
+              <div class="carrousel flex">
+                <div
+                  class="gamecardImage w50 flex justify-center align-stretch"
+                >
+                  <img
+                    src="assets/games/gallery/582180-uncharted-4-tiene-intro-mas-fuerte-mayor-calidad-last-us-segun-naughty-dog.webp"
+                    alt="Skyrim"
+                    class="gallery gameImage"
+                  />
+                </div>
+                <div
+                  class="gamecardImage w50 mh-10 flex justify-center align-stretch"
+                >
+                  <img
+                    src="assets/games/gallery/Uncharted-4-A-Thief-s-End-image-9974.jpeg"
+                    alt="Skyrim"
+                    class="gallery gameImage"
+                  />
+                </div>
+                <div
+                  class="gamecardImage w50 flex justify-center align-stretch"
+                >
+                  <img
+                    src="assets/games/gallery/uc4_06.jpeg"
+                    alt="Skyrim"
+                    class="gallery gameImage"
+                  />
+                </div>
+                <div
+                  class="gamecardImage w50 mh-10 flex justify-center align-stretch"
+                >
+                  <img
+                    src="assets/games/gallery/large (1).webp"
+                    alt="Skyrim"
+                    class="gallery gameImage"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="FeaturedGames" class="flex"></section>
+      <section class="flex PersonalizedGames justify-center">
+        <article class="myGames suggestionContainer">
+          <div class="flex justify-sb">
+            <h2>Go Back To</h2>
+            <img
+              src="assets/icons/more-svgrepo-com.svg"
+              class="icon white"
+              alt="more options"
+            />
+          </div>
+          <div class="gallery flex col">
+            <div class="gamecard">
+              <div class="overlay">
+                <img
+                  src="assets/icons/play-svgrepo-com.svg"
+                  class="icon-sm white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div
+                class="gamecardImage flex justify-center w100 h100 align-stretch"
+              >
+                <img
+                  src="assets/games/accion/fortnite-overview-page-key-art-bg-1920x1080-fe4dd540a1f1.jpeg"
+                  alt="Skyrim"
+                  class="gameImage"
+                />
+              </div>
+            </div>
+            <div class="gamecard">
+              <div class="overlay">
+                <img
+                  src="assets/icons/play-svgrepo-com.svg"
+                  class="icon-sm white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div
+                class="gamecardImage flex justify-center w100 h100 align-stretch"
+              >
+                <img
+                  src="assets/games/aventura/tomb-raider.jpeg"
+                  alt="Skyrim"
+                  class="gameImage"
+                />
+              </div>
+            </div>
+            <div class="gamecard">
+              <div class="overlay">
+                <img
+                  src="assets/icons/play-svgrepo-com.svg"
+                  class="icon-sm white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div
+                class="gamecardImage flex justify-center w100 h100 align-stretch"
+              >
+                <img
+                  src="assets/games/accion/god-of-war-kratos-sony-playstation-4-wallpaper-preview.jpeg"
+                  alt="Skyrim"
+                  class="gameImage"
+                />
+              </div>
+            </div>
+            <div class="gamecard">
+              <div class="overlay">
+                <img
+                  src="assets/icons/play-svgrepo-com.svg"
+                  class="icon-sm white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div
+                class="gamecardImage flex justify-center w100 h100 align-stretch"
+              >
+                <img
+                  src="assets/games/accion/f0e9245d0619b1c10c9cc01c1bd248f1.jpeg"
+                  alt="Skyrim"
+                  class="gameImage"
+                />
+              </div>
+            </div>
+            <div class="gamecard">
+              <div class="overlay">
+                <img
+                  src="assets/icons/play-svgrepo-com.svg"
+                  class="icon-sm white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div
+                class="gamecardImage flex justify-center w100 h100 align-stretch"
+              >
+                <img
+                  src="assets/games/aventura/mario-luigi.jpeg"
+                  alt="Skyrim"
+                  class="gameImage"
+                />
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="suggestionContainer FriendsGames desktop">
+          <div class="flex justify-sb">
+            <h2>What Your Friends Are Playing</h2>
+            <img
+              src="assets/icons/more-svgrepo-com.svg"
+              class="icon white"
+              alt="more options"
+            />
+          </div>
+          <div class="gallery flex">
+            <div class="suggestionContainer friendsContainer flex">
+              <div class="gamecard">
+                <div class="overlay">
+                  <img
+                    src="assets/icons/play-svgrepo-com.svg"
+                    class="icon-sm white absolute centered"
+                    alt="play game"
+                  />
+                </div>
+                <div
+                  class="gamecardImage flex justify-center w100 h100 align-stretch"
+                >
+                  <img
+                    src="assets/games/accion/fortnite-overview-page-key-art-bg-1920x1080-fe4dd540a1f1.jpeg"
+                    alt="Skyrim"
+                    class="gameImage"
+                  />
+                </div>
+              </div>
+              <div class="flex col justify-sb friendInfo">
+                <h3>Marcus33</h3>
+                <p>Fortnite</p>
+              </div>
+            </div>
+            <div class="suggestionContainer friendsContainer flex">
+              <div class="gamecard">
+                <div class="overlay">
+                  <img
+                    src="assets/icons/play-svgrepo-com.svg"
+                    class="icon-sm white absolute centered"
+                    alt="play game"
+                  />
+                </div>
+                <div
+                  class="gamecardImage flex justify-center w100 h100 align-stretch"
+                >
+                  <img
+                    src="assets/games/aventura/tomb-raider.jpeg"
+                    alt="Skyrim"
+                    class="gameImage"
+                  />
+                </div>
+              </div>
+              <div class="flex col justify-sb friendInfo">
+                <h3>Kirkirkirby</h3>
+                <p>Tomb Raider</p>
+              </div>
+            </div>
+            <div class="suggestionContainer friendsContainer flex">
+              <div class="gamecard">
+                <div class="overlay">
+                  <img
+                    src="assets/icons/play-svgrepo-com.svg"
+                    class="icon-sm white absolute centered"
+                    alt="play game"
+                  />
+                </div>
+                <div
+                  class="gamecardImage flex justify-center w100 h100 align-stretch"
+                >
+                  <img
+                    src="assets/games/accion/sekiro.jpg"
+                    alt="Skyrim"
+                    class="gameImage"
+                  />
+                </div>
+              </div>
+              <div class="flex col justify-sb friendInfo">
+                <h3>Barbzz12</h3>
+                <p>Sekiro</p>
+              </div>
+            </div>
+            <div class="suggestionContainer friendsContainer flex">
+              <div class="gamecard">
+                <div class="overlay">
+                  <img
+                    src="assets/icons/play-svgrepo-com.svg"
+                    class="icon-sm white absolute centered"
+                    alt="play game"
+                  />
+                </div>
+                <div
+                  class="gamecardImage flex justify-center w100 h100 align-stretch"
+                >
+                  <img
+                    src="assets/games/accion/uncharted-4k-game-zr.jpeg"
+                    alt="Skyrim"
+                    class="gameImage"
+                  />
+                </div>
+              </div>
+              <div class="flex col justify-sb friendInfo">
+                <h3>Kill3RG0D</h3>
+                <p>Uncharted 3</p>
+              </div>
+            </div>
+            <div class="suggestionContainer friendsContainer flex">
+              <div class="gamecard">
+                <div class="overlay">
+                  <img
+                    src="assets/icons/play-svgrepo-com.svg"
+                    class="icon-sm white absolute centered"
+                    alt="play game"
+                  />
+                </div>
+                <div
+                  class="gamecardImage flex justify-center w100 h100 align-stretch"
+                >
+                  <img
+                    src="assets/games/aventura/video-game-raving-rabbids-wallpaper-preview.jpeg"
+                    alt="Skyrim"
+                    class="gameImage"
+                  />
+                </div>
+              </div>
+              <div class="flex col justify-sb friendInfo">
+                <h3>PetterChad</h3>
+                <p>Rabbits</p>
+              </div>
+            </div>
+            <div class="suggestionContainer friendsContainer flex">
+              <div class="gamecard">
+                <div class="overlay">
+                  <img
+                    src="assets/icons/play-svgrepo-com.svg"
+                    class="icon-sm white absolute centered"
+                    alt="play game"
+                  />
+                </div>
+                <div
+                  class="gamecardImage flex justify-center w100 h100 align-stretch"
+                >
+                  <img
+                    src="assets/games/simulacion/sims-4-sims-simscity-the-sims-4-wallpaper-preview.jpeg"
+                    alt="Skyrim"
+                    class="gameImage"
+                  />
+                </div>
+              </div>
+              <div class="flex col justify-sb friendInfo">
+                <h3>xxTemteishoNxx</h3>
+                <p>Sims 4</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+      <section class="gameSection">
+        <h2 class="sectionTitle">Action</h2>
+        <div class="carrouselContainer">
+          <div class="carrousel flex">
+            <div class="gamecard flex">
+              <div class="overlay">
+                <img
+                  src="assets/icons/play-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/accion/f0e9245d0619b1c10c9cc01c1bd248f1.jpeg"
+                  alt="Skyrim"
+                  class="gameImage"
+                />
+              </div>
+              <div class="gameTitle">
+                <h3>Skyrim</h3>
+              </div>
+            </div>
+            <div class="gamecard flex">
+              <div class="overlay">
+                <img
+                  src="assets/icons/play-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/accion/fortnite-overview-page-key-art-bg-1920x1080-fe4dd540a1f1.jpeg"
+                  alt="Fortnite"
+                  class="gameImage"
+                />
+              </div>
+              <div class="gameTitle">
+                <h3>Fortnite</h3>
+              </div>
+            </div>
+            <div class="gamecard flex">
+              <div class="overlay">
+                <img
+                  src="assets/icons/play-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/accion/god-of-war-kratos-sony-playstation-4-wallpaper-preview.jpeg"
+                  alt="God of War 4"
+                  class="gameImage"
+                />
+              </div>
+              <div class="gameTitle">
+                <h3>God of War</h3>
+              </div>
+            </div>
+            <div class="gamecard flex borderPremium">
+              <div class="overlay">
+                <img
+                  src="assets/icons/buy-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/accion/remake-the-last-of-us-scaled.webp"
+                  alt="Last of Us"
+                  class="gameImage"
+                />
+                <div
+                  class="icon flex align-center justify-center premium borderPremium"
+                >
+                  <img
+                    src="assets/icons/dollar-sign-alt-svgrepo-com.svg"
+                    alt="premium game"
+                    class="white"
+                  />
+                </div>
+              </div>
+              <div class="gameTitle">
+                <h3>Last of Us</h3>
+              </div>
+            </div>
+            <div class="gamecard flex">
+              <div class="overlay">
+                <img
+                  src="assets/icons/play-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/accion/sekiro.jpg"
+                  alt="Sekiro "
+                  class="gameImage"
+                />
+              </div>
+              <div class="gameTitle">
+                <h3>Sekiro</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="gameSection">
+        <h2 class="sectionTitle">Adventure</h2>
+        <div class="carrouselContainer">
+          <div class="carrousel flex">
+            <div class="gamecard flex">
+              <div class="overlay">
+                <img
+                  src="assets/icons/play-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/aventura/tomb-raider.jpeg"
+                  alt="Tomb Raider Game"
+                  class="gameImage"
+                />
+              </div>
+              <div class="gameTitle">
+                <h3>Tomb Raider</h3>
+              </div>
+            </div>
+            <div class="gamecard flex">
+              <div class="overlay">
+                <img
+                  src="assets/icons/play-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/aventura/sonic.jpeg"
+                  alt="Tomb Raider Game"
+                  class="gameImage"
+                />
+              </div>
+              <div class="gameTitle">
+                <h3>Sonic</h3>
+              </div>
+            </div>
+            <div class="gamecard flex">
+              <div class="overlay">
+                <img
+                  src="assets/icons/play-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/aventura/mario-luigi.jpeg"
+                  alt="Tomb Raider Game"
+                  class="gameImage"
+                />
+              </div>
+              <div class="gameTitle">
+                <h3>Mario and Luigi</h3>
+              </div>
+            </div>
+            <div class="gamecard flex borderPremium">
+              <div class="overlay">
+                <img
+                  src="assets/icons/buy-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/aventura/uncharted.jpeg"
+                  alt="Uncharted 4"
+                  class="gameImage"
+                />
+                <div
+                  class="icon flex align-center justify-center premium borderPremium"
+                >
+                  <img
+                    src="assets/icons/dollar-sign-alt-svgrepo-com.svg"
+                    alt="premium game"
+                    class="white"
+                  />
+                </div>
+              </div>
+              <div class="gameTitle">
+                <h3>Uncharted 4</h3>
+              </div>
+            </div>
+            <div class="gamecard">
+              <div class="overlay">
+                <img
+                  src="assets/icons/play-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/accion/uncharted-4k-game-zr.jpeg"
+                  alt="Uncharted 3"
+                  class="gameImage"
+                />
+              </div>
+              <div class="gameTitle">
+                <h3>Uncharted 3</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="gameSection">
+        <h2 class="sectionTitle">Racing</h2>
+        <div class="carrouselContainer">
+          <div class="carrousel flex">
+            <div class="gamecard">
+              <div class="overlay">
+                <img
+                  src="assets/icons/play-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/carreras/descarga.jpeg"
+                  alt="Need for Speed Payback"
+                  class="gameImage"
+                />
+              </div>
+              <div class="gameTitle">
+                <h3>Need for Speed Payback</h3>
+              </div>
+            </div>
+            <div class="gamecard">
+              <div class="overlay">
+                <img
+                  src="assets/icons/play-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/carreras/mario-kart-wallpaper-preview.jpeg"
+                  alt="Mario Kart"
+                  class="gameImage"
+                />
+              </div>
+              <div class="gameTitle">
+                <h3>Mario Kart</h3>
+              </div>
+            </div>
+            <div class="gamecard flex borderPremium">
+              <div class="overlay">
+                <img
+                  src="assets/icons/buy-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/carreras/wp4370232.jpeg"
+                  alt="Asphalt"
+                  class="gameImage"
+                />
+                <div
+                  class="icon flex align-center justify-center premium borderPremium"
+                >
+                  <img
+                    src="assets/icons/dollar-sign-alt-svgrepo-com.svg"
+                    alt="premium game"
+                    class="white"
+                  />
+                </div>
+              </div>
+              <div class="gameTitle">
+                <h3>Asphalt</h3>
+              </div>
+            </div>
+            <div class="gamecard flex borderPremium">
+              <div class="overlay">
+                <img
+                  src="assets/icons/buy-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/carreras/wp5313405.jpeg"
+                  alt="Pursuit"
+                  class="gameImage"
+                />
+                <div
+                  class="icon flex align-center justify-center premium borderPremium"
+                >
+                  <img
+                    src="assets/icons/dollar-sign-alt-svgrepo-com.svg"
+                    alt="premium game"
+                    class="white"
+                  />
+                </div>
+              </div>
+              <div class="gameTitle">
+                <h3>Need For Speed Pursuit</h3>
+              </div>
+            </div>
+            <div class="gamecard flex">
+              <div class="overlay">
+                <img
+                  src="assets/icons/play-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/carreras/wp5435285.jpeg"
+                  alt="Test Drive"
+                  class="gameImage"
+                />
+              </div>
+              <div class="gameTitle">
+                <h3>Test Drive</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="gameSection">
+        <h2 class="sectionTitle">Simulation</h2>
+        <div class="carrouselContainer">
+          <div class="carrousel flex">
+            <div class="gamecard flex">
+              <div class="overlay">
+                <img
+                  src="assets/icons/play-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/simulacion/thumbbig-1085535.webp"
+                  alt="Flight Simulator"
+                  class="gameImage"
+                />
+              </div>
+              <div class="gameTitle">
+                <h3>Hunt Simulator</h3>
+              </div>
+            </div>
+            <div class="gamecard flex borderPremium">
+              <div class="overlay">
+                <img
+                  src="assets/icons/buy-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/simulacion/1142817.jpeg"
+                  alt="Simcity"
+                  class="gameImage"
+                />
+                <div
+                  class="icon flex align-center justify-center premium borderPremium"
+                >
+                  <img
+                    src="assets/icons/dollar-sign-alt-svgrepo-com.svg"
+                    alt="premium game"
+                    class="white"
+                  />
+                </div>
+              </div>
+              <div class="gameTitle">
+                <h3>Simcity</h3>
+              </div>
+            </div>
+            <div class="gamecard flex">
+              <div class="overlay">
+                <img
+                  src="assets/icons/play-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/simulacion/euro-truck-simulator-scs-software-trucks-wallpaper-preview.jpeg"
+                  alt="Truck Simulator"
+                  class="gameImage"
+                />
+              </div>
+              <div class="gameTitle">
+                <h3>Truck Simulator</h3>
+              </div>
+            </div>
+            <div class="gamecard flex borderPremium">
+              <div class="overlay">
+                <img
+                  src="assets/icons/buy-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/simulacion/sims-4-sims-simscity-the-sims-4-wallpaper-preview.jpeg"
+                  alt="Sims 4"
+                  class="gameImage"
+                />
+                <div
+                  class="icon flex align-center justify-center premium borderPremium"
+                >
+                  <img
+                    src="assets/icons/dollar-sign-alt-svgrepo-com.svg"
+                    alt="premium game"
+                    class="white"
+                  />
+                </div>
+              </div>
+              <div class="gameTitle">
+                <h3>Sims 4</h3>
+              </div>
+            </div>
+            <div class="gamecard flex">
+              <div class="overlay">
+                <img
+                  src="assets/icons/play-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/simulacion/screen-0.webp"
+                  alt="Ark"
+                  class="gameImage"
+                />
+              </div>
+              <div class="gameTitle">
+                <h3>Ark</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="gameSection">
+        <h2 class="sectionTitle">Sports</h2>
+        <div class="carrouselContainer">
+          <div class="carrousel flex">
+            <div class="gamecard flex borderPremium">
+              <div class="overlay">
+                <img
+                  src="assets/icons/buy-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/deportes/wp10677109.jpeg"
+                  alt="NBA22"
+                  class="gameImage"
+                />
+                <div
+                  class="icon flex align-center justify-center premium borderPremium"
+                >
+                  <img
+                    src="assets/icons/dollar-sign-alt-svgrepo-com.svg"
+                    alt="premium game"
+                    class="white"
+                  />
+                </div>
+              </div>
+              <div class="gameTitle">
+                <h3>NBA 22</h3>
+              </div>
+            </div>
+            <div class="gamecard flex">
+              <div class="overlay">
+                <img
+                  src="assets/icons/play-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/deportes/wp10678881.jpeg"
+                  alt="Mario Sports"
+                  class="gameImage"
+                />
+              </div>
+              <div class="gameTitle">
+                <h3>Mario Sports</h3>
+              </div>
+            </div>
+            <div class="gamecard flex">
+              <div class="overlay">
+                <img
+                  src="assets/icons/play-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/deportes/wp10678905.jpeg"
+                  alt="AS Tennis"
+                  class="gameImage"
+                />
+              </div>
+              <div class="gameTitle">
+                <h3>All Star Tennis</h3>
+              </div>
+            </div>
+            <div class="gamecard flex">
+              <div class="overlay">
+                <img
+                  src="assets/icons/play-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/deportes/wp10678916.jpeg"
+                  alt="Tiger Woods 15"
+                  class="gameImage"
+                />
+              </div>
+              <div class="gameTitle">
+                <h3>Tiger Woods</h3>
+              </div>
+            </div>
+            <div class="gamecard flex">
+              <div class="overlay">
+                <img
+                  src="assets/icons/play-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/deportes/wp10678990.jpeg"
+                  alt="Olympics Forever"
+                  class="gameImage"
+                />
+              </div>
+              <div class="gameTitle">
+                <h3>Olympics Forever</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="gameSection">
+        <h2 class="sectionTitle">Survival</h2>
+        <div class="carrouselContainer">
+          <div class="carrousel flex">
+            <div class="gamecard flex borderPremium">
+              <div class="overlay">
+                <img
+                  src="assets/icons/buy-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/terror/2019_Resident_Evil_2_Game_HD_Poster_medium.jpeg"
+                  alt="Resident Evil 2"
+                  class="gameImage"
+                />
+                <div
+                  class="icon flex align-center justify-center premium borderPremium"
+                >
+                  <img
+                    src="assets/icons/dollar-sign-alt-svgrepo-com.svg"
+                    alt="premium game"
+                    class="white"
+                  />
+                </div>
+              </div>
+              <div class="gameTitle">
+                <h3>Resident Evil 2</h3>
+              </div>
+            </div>
+            <div class="gamecard flex borderPremium">
+              <div class="overlay">
+                <img
+                  src="assets/icons/buy-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/terror/wp5505468.jpeg"
+                  alt="BloodBorne"
+                  class="gameImage"
+                />
+                <div
+                  class="icon flex align-center justify-center premium borderPremium"
+                >
+                  <img
+                    src="assets/icons/dollar-sign-alt-svgrepo-com.svg"
+                    alt="premium game"
+                    class="white"
+                  />
+                </div>
+              </div>
+              <div class="gameTitle">
+                <h3>BloodBorne</h3>
+              </div>
+            </div>
+            <div class="gamecard flex">
+              <div class="overlay">
+                <img
+                  src="assets/icons/play-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/terror/wp6436399.jpeg"
+                  alt="World War Z"
+                  class="gameImage"
+                />
+              </div>
+              <div class="gameTitle">
+                <h3>World War Z</h3>
+              </div>
+            </div>
+            <div class="gamecard flex borderPremium">
+              <div class="overlay">
+                <img
+                  src="assets/icons/buy-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/terror/wp6674492.jpeg"
+                  alt="Friday the 13th"
+                  class="gameImage"
+                />
+                <div
+                  class="icon flex align-center justify-center premium borderPremium"
+                >
+                  <img
+                    src="assets/icons/dollar-sign-alt-svgrepo-com.svg"
+                    alt="premium game"
+                    class="white"
+                  />
+                </div>
+              </div>
+              <div class="gameTitle">
+                <h3>Friday the 13th</h3>
+              </div>
+            </div>
+            <div class="gamecard flex">
+              <div class="overlay">
+                <img
+                  src="assets/icons/play-svgrepo-com.svg"
+                  class="icon white absolute centered"
+                  alt="play game"
+                />
+              </div>
+              <div class="gamecardImage">
+                <img
+                  src="assets/games/terror/wp6674726.jpeg"
+                  alt="SlenderMan"
+                  class="gameImage"
+                />
+              </div>
+              <div class="gameTitle">
+                <h3>SlenderMan</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="flex justify-sb">
+      <div class="footer-form w40 flex col justfify-sa align-center desktop">
+        <h3>Subscribe to the Newsletter</h3>
+        <div>
+          <form action="">
+            <input type="text" placeholder="Place your email here" />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="division-line"></div>
+      <div class="flex justify-se min-w60">
+        <div class="footer-section text-center">
+          <h3>About Us</h3>
+          <ul>
+            <li><a href="">Team Members</a></li>
+            <li><a href="">Other Projects</a></li>
+            <li><a href="">Our Mission</a></li>
+            <li><a href="">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="division-line"></div>
+        <div class="footer-section text-center">
+          <h3>Policy</h3>
+          <ul>
+            <li><a href="">Sale</a></li>
+            <li><a href="">Purchases</a></li>
+            <li><a href="">Regret Button</a></li>
+            <li><a href="">Refunds</a></li>
+          </ul>
+        </div>
+        <div class="division-line"></div>
+        <div class="footer-section text-center">
+          <h3>Other</h3>
+          <ul>
+            <li><a href="">FAQ's</a></li>
+            <li><a href="">Terms</a></li>
+            <li><a href="">Security</a></li>
+            <li><a href="">FeedBack</a></li>
+          </ul>
+        </div>
+        <div class="division-line"></div>
+        <div
+          class="footer-section footer-links flex col justfify-se align-center"
+        >
+          <ul>
+            <li>
+              <a href=""
+                ><img
+                  class="icon white"
+                  src="assets/icons/instagram-svgrepo-com.svg"
+                  alt="Instagram"
+              /></a>
+            </li>
+            <li>
+              <a href=""
+                ><img
+                  class="icon white"
+                  src="assets/icons/facebook-svgrepo-com.svg"
+                  alt="Facebook"
+              /></a>
+            </li>
+            <li>
+              <a href=""
+                ><img
+                  class="icon white"
+                  src="assets/icons/twitter-logo-svgrepo-com.svg"
+                  alt="Twitter"
+              /></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.js"></script>
+    <script src="scripts/index.js"></script>
+    <script src="scripts/buybutton.js"></script>
+  </body>
+</html>
