@@ -1,0 +1,4374 @@
+
+
+<!DOCTYPE html>
+<html lang="es" dir="ltr" wf-loading>
+    <head>
+        
+    
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png">
+
+
+    <script>
+        window.newrelicAttributes = {
+            accountId: "1796917",
+            trustKey: "1796917",
+            agentId: "149134891",
+            licenseKey: "f701a6c63c",
+            applicationId: "149134891"
+        };
+    </script>
+    <script src="/newrelic.js"></script>
+
+
+
+<!-- Compliant Google Optimize -->
+<script>
+        (() => {
+            const getPrivacyCookie = () => {
+                const privacyCookie = document.cookie.match('(^|;)\\s*cmapi_cookie_privacy\\s*=\\s*([^;]+)');
+
+                return privacyCookie ? privacyCookie.pop() : null;
+            };
+
+            const getBehaviorCookie = () => {
+                const behaviorCookie = document.cookie.match('(^|;)\\s*notice_behavior\\s*=\\s*([^;]+)');
+
+                return behaviorCookie ? behaviorCookie.pop() : null;
+            };
+
+            const hasOptedIn = () => {
+                const behaviorCookie = getBehaviorCookie();
+                const privacyCookie = getPrivacyCookie();
+
+                return behaviorCookie && behaviorCookie.match(/^none$/) || privacyCookie && privacyCookie.match(/2|3/);
+            }
+
+            const appendOptimize = () => {
+                const head = document.getElementsByTagName('head')[0];
+
+                if (head) {
+                    const script = document.createElement('script');
+
+                    script.src = 'https://www.googleoptimize.com/optimize.js?id=GTM-M6BQF2W';
+                    script.id = "google-optimize"
+                    head.append(script);
+                }
+            };
+
+            const removeOptimize = () => {
+                const head = document.getElementsByTagName('head')[0];
+                const optimizeScript = document.getElementById('google-optimize');
+
+                if (head && optimizeScript) {
+                    head.removeChild(optimizeScript);
+                }
+            }
+
+            /**
+             * Append or remove Google Optimize script to head,
+             * depending on whether user's cookie preferences
+             * have opted in and Google Optimize script already
+             * exists in head.
+             */
+            const handleConsentDecision = () => {
+                const googleOptimizeScript = document.getElementById('google-optimize');
+                if (hasOptedIn() && !googleOptimizeScript) {
+                    appendOptimize();
+                } else if (!hasOptedIn() && googleOptimizeScript) {
+                    removeOptimize();
+                }
+            }
+
+            /**
+             * Callbacks will occur in the form of a PostMessage event. This code listens for the
+             * appropriately formatted PostMessage event, gets the new consent decision, and then sets
+             * the new cookie preferences.
+             */
+            const handlePreferencesUpdated = (e) => {
+                try {
+                    const { capabilities, action } = JSON.parse(e.data).PrivacyManagerAPI || {};
+                    if (capabilities && action === 'getConsentDecision') {
+                        handleConsentDecision();
+                    }
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+
+            /**
+             * Registers with the TrustArc Content Manager (CM) API to receive callbacks when
+             * a preference update occurs, and initialized dispatched preferences array to
+             * the user's current preferences. You must wait for the CM API (PrivacyManagerAPI object)
+             * to exist on the page before registering.
+             */
+            const CMICallbackRegister = () => {
+                const interval = setInterval(() => {
+                    if (window.PrivacyManagerAPI && interval) {
+                        const apiObject = {
+                            PrivacyManagerAPI: {
+                                action: 'getConsentDecision',
+                                timestamp: new Date().getTime(),
+                                self: window.location.host
+                            }
+                        };
+                        window.top.postMessage(JSON.stringify(apiObject), '*');
+                        clearInterval(interval);
+                    }
+                }, 50);
+            }
+
+            /**
+             * Listener registers a message callback on the TrustArc Content Manager when
+             * user's cookie preferences are updated and adds an event listener
+             * on the message events that occur when said preference updates occur.
+             */
+            const trustArcScriptLoadListener = () => {
+                if (typeof window.truste === 'object') {
+                    CMICallbackRegister();
+                    window.addEventListener('message', handlePreferencesUpdated);
+                }
+            }
+
+            window.addEventListener('load', trustArcScriptLoadListener);
+            const behaviorCookie = getBehaviorCookie();
+
+            if (behaviorCookie === null) {
+                // wait for TrustArc script to load before checking cookies
+                let numIntervals = 0;
+                const scriptLoadInterval = setInterval( () => {
+                    if(getBehaviorCookie()) {
+                        handleConsentDecision();
+                        clearInterval(scriptLoadInterval);
+                    }
+                    // Stop running interval after 8 times (8x the documented 500ms it
+                    // should take to load the TrustArc script on the BE) to prevent running forever
+                    if (++numIntervals >= 10) {
+                        clearInterval(scriptLoadInterval);
+                    }
+                } , 500);
+            } else {
+                handleConsentDecision();
+            }
+        })();
+</script>
+    <!-- End Compliant Google Optimize -->
+
+
+<!-- Google Tag Manager -->
+<script>
+    (function(w, d, s, l) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js'
+        });
+
+        var f = d.getElementsByTagName(s)[0];
+        var j = d.createElement(s);
+        var dl = l !== 'dataLayer' ? '&l=' + l : '';
+
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-TG32RCX' + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer');
+</script>
+<!-- End Google Tag Manager -->
+
+
+
+<style>
+    [unresolved] {
+        visibility: hidden !important;
+    }
+</style>
+
+
+<noscript>
+    <style>
+        [unresolved] {
+            visibility: visible !important;
+        }
+    </style>
+</noscript>
+
+<style>
+    body {
+        margin: 0;
+    }
+
+    .image img {
+        max-width: 100%;
+    }
+</style>
+
+
+<script>
+    
+    if (!CSS.supports('width', 'calc((var(--test))')) {
+        window.ShadyCSS = {
+            shimcssproperties: true
+        };
+    }
+
+    document.addEventListener('nds.typeKit.active', function() {
+        document.querySelector('html').removeAttribute('wf-loading');
+    });
+</script>
+
+<script src="//unpkg.com/@webcomponents/webcomponentsjs@2.2.7/webcomponents-loader.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
+<script src="//w.soundcloud.com/player/api.js"></script>
+
+
+
+
+
+
+<script>
+    window.nds = window.nds || {};
+    window.nds.componentUrlPrefix = '//pl.ea.com/release/4.46.3/elements/ea-elements.min.js'.substring(0, '//pl.ea.com/release/4.46.3/elements/ea-elements.min.js'.lastIndexOf('/') + 1);
+    window.nds.contentfulUrl = 'https://contentful-proxy.juno.ea.com/graphql';
+    window.nds.salUrl = 'https://service-aggregation-layer.juno.ea.com/graphql';
+    window.nds.useApq = true;
+    window.nds.salClientId = 'eacom-fe';
+    window.nds.xGameDistMethod = 'eacom';
+    window.nds.lockboxGameId = 'eacom';
+    window.nds.lockboxInvoiceSource = 'EACOM-STORE-WEB-%countryCode%';
+    window.nds.lockboxExternalPaymentPath = '/lockbox-external-payment';
+</script>
+<script type="module" src="//pl.ea.com/release/4.46.3/elements/ea-elements.min.js"></script>
+<script nomodule defer src="//pl.ea.com/release/4.46.3/elements/ea-elements.min.js"></script>
+
+
+
+    
+        
+    
+
+<style>
+    @font-face {
+    font-family: 'ElectronicArtsDisplay';
+    src: url(/assets/fonts/display/ElectronicArtsDisplay-Regular.woff2) format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ElectronicArtsDisplay';
+    src: url(/assets/fonts/display/ElectronicArtsDisplay-Bold.woff2) format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ElectronicArtsText';
+    src: url(/assets/fonts/text/ElectronicArtsText-Light.woff2) format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ElectronicArtsText';
+    src: url(/assets/fonts/text/ElectronicArtsText-LightItalic.woff2) format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'ElectronicArtsText';
+    src: url(/assets/fonts/text/ElectronicArtsText-Regular.woff2) format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ElectronicArtsText';
+    src: url(/assets/fonts/text/ElectronicArtsText-Italic.woff2) format('woff');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'ElectronicArtsText';
+    src: url(/assets/fonts/text/ElectronicArtsText-Bold.woff2) format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ElectronicArtsText';
+    src: url(/assets/fonts/text/ElectronicArtsText-BoldItalic.woff2) format('woff');
+    font-weight: 600;
+    font-style: italic;
+}
+
+</style>
+
+
+
+
+
+
+    <title>Need for Speed Payback - Juego de carreras de acción - Sitio oficial de EA</title>
+    
+
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Need for Speed Payback - Juego de carreras de acción - Sitio oficial de EA">
+<meta property="og:description" content="Sitio oficial de Need for Speed Payback, el nuevo juego de la popular franquicia de videojuegos de carreras Need for Speed, con un mundo fantástico lleno de acción.">
+<meta property="og:url" content="https://www.ea.com/es-es/games/need-for-speed/need-for-speed-payback
+">
+<meta property="og:site_name" content="Electronic Arts Inc.">
+
+    <meta property="og:image" content="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/06/nfspgenkeyartrgbhorz-16x9.jpg.adapt.crop191x100.1200w.jpg">
+
+
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="628">
+
+
+<meta name="description" content="Sitio oficial de Need for Speed Payback, el nuevo juego de la popular franquicia de videojuegos de carreras Need for Speed, con un mundo fantástico lleno de acción.">
+<meta name="author" content="Electronic Arts">
+<meta property="article:modified_time" content="2022-02-02T23:11:35Z">
+<meta property="article:published_time" content="2022-02-02T23:11:35Z">
+
+
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ea">
+<meta name="twitter:title" content="Need for Speed Payback - Juego de carreras de acción - Sitio oficial de EA">
+<meta name="twitter:description" content="Sitio oficial de Need for Speed Payback, el nuevo juego de la popular franquicia de videojuegos de carreras Need for Speed, con un mundo fantástico lleno de acción.">
+
+    <meta name="twitter:image" content="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/06/nfspgenkeyartrgbhorz-16x9.jpg.adapt.crop16x9.1023w.jpg">
+
+<meta name="twitter:creator" content="@ea">
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+     
+"image": {
+    "@type": "ImageObject",
+    "url": "https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/06/nfspgenkeyartrgbhorz-16x9.jpg.adapt.crop191x100.1200w.jpg"
+},
+ 
+    "author": {
+      "@type": "Organization",
+      "name": "Electronic Arts",
+      "sameAs": "https://en.wikipedia.org/wiki/Electronic_Arts"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Electronic Arts",
+        "sameAs": "https://en.wikipedia.org/wiki/Electronic_Arts",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://media.contentapi.ea.com/content/dam/ea/EA_logo.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "inLanguage": "es",
+    "description": "Sitio oficial de Need for Speed Payback, el nuevo juego de la popular franquicia de videojuegos de carreras Need for Speed, con un mundo fantástico lleno de acción.",
+    "datePublished": "2022-02-02T23:11:35Z",
+    "dateModified": "2022-02-02T23:11:35Z",
+    "headline": "Need for Speed Payback - Juego de carreras de acción - Sitio oficial de EA",
+    "url": "https://www.ea.com/es-es/games/need-for-speed/need-for-speed-payback
+"
+}
+</script>
+
+
+
+    <script >bazadebezolkohpepadr="1366334254"</script><script type="text/javascript" src="https://www.ea.com/akam/13/517099d7"  defer></script></head>
+    <body unresolved>
+        
+    
+
+
+<custom-style><style include="ea-shared-styles-base-common"></style></custom-style>
+<custom-style><style include="ea-shared-styles-base-headings"></style></custom-style>
+<custom-style><style include="ea-shared-styles-base-lists"></style></custom-style>
+<custom-style><style include="ea-shared-styles-base-links"></style></custom-style>
+<custom-style><style include="ea-shared-styles-base-images"></style></custom-style>
+<custom-style><style include="ea-shared-styles-typography-headings"></style></custom-style>
+<custom-style><style include="ea-shared-styles-typography-paragraphs"></style></custom-style>
+<custom-style><style include="ea-shared-styles-typography-labels"></style></custom-style>
+
+
+    
+        
+            <custom-style>
+                <style>
+                    html {
+                        
+                            --eaCorporate-landingSection-spacerTop-XS: 32px;
+                        
+                            --eaCorporate-landingSection-spacerTop-SM: 32px;
+                        
+                            --eaCorporate-landingSection-spacerTop-MD: 80px;
+                        
+                            --eaCorporate-landingSection-spacerTop-LG: 104px;
+                        
+                            --eaCorporate-landingSection-spacerTop-XL: 128px;
+                        
+                            --eaCorporate-landingSection-spacerBottom-XS: 32px;
+                        
+                            --eaCorporate-landingSection-spacerBottom-SM: 32px;
+                        
+                            --eaCorporate-landingSection-spacerBottom-MD: 40px;
+                        
+                            --eaCorporate-landingSection-spacerBottom-LG: 48px;
+                        
+                            --eaCorporate-landingSection-spacerBottom-XL: 56px;
+                        
+                            --eaCorporate-standardSection-spacerTop-XS: 48px;
+                        
+                            --eaCorporate-standardSection-spacerTop-SM: 48px;
+                        
+                            --eaCorporate-standardSection-spacerTop-MD: 80px;
+                        
+                            --eaCorporate-standardSection-spacerTop-LG: 80px;
+                        
+                            --eaCorporate-standardSection-spacerTop-XL: 80px;
+                        
+                            --eaCorporate-standardSection-spacerBottom-XS: 48px;
+                        
+                            --eaCorporate-standardSection-spacerBottom-SM: 48px;
+                        
+                            --eaCorporate-standardSection-spacerBottom-MD: 80px;
+                        
+                            --eaCorporate-standardSection-spacerBottom-LG: 80px;
+                        
+                            --eaCorporate-standardSection-spacerBottom-XL: 80px;
+                        
+                            --ea-theme-stream-ui-paddle-default: #161616;
+                        
+                            --ea-theme-stream-ui-paddle-disabled: #BFBFBF;
+                        
+                            --ea-theme-stream-ui-progress-indicator-default: rgb(255,255,255);
+                        
+                            --ea-theme-stream-ui-progress-indicator-hover: rgb(255,255,255);
+                        
+                            --ea-theme-stream-ui-progress-bar-stroke-default: #ff8e8e;
+                        
+                            --ea-theme-stream-ui-progress-bar-stroke-hover: #ff8e8e;
+                        
+                            --ea-theme-stream-ui-progress-bar-fill-hover: #ff8e8e;
+                        
+                            --ea-theme-toaster-eyebrow-font-size-mobile: 16px;
+                        
+                            --ea-theme-toaster-eyebrow-font-size-tablet: 18px;
+                        
+                            --ea-theme-toaster-eyebrow-font-size-desktop: 20px;
+                        
+                            --ea-theme-toaster-copy-font-size-tablet: 16px;
+                        
+                            --ea-theme-toaster-copy-font-size-desktop: 18px;
+                        
+                            --ea-theme-tabs-background-color: #FFFFFF;
+                        
+                            --ea-theme-tabs-indicator-color: #FF4747;
+                        
+                            --ea-theme-tabs-interface-color: #FF4747;
+                        
+                            --ea-theme-tabs-unselected-type: #000000;
+                        
+                            --ea-theme-tabs-selected-type: #000000;
+                        
+                            --ea-theme-tabs-selected-state: #DEDEDE;
+                        
+                             --ea-theme-tabs-accent-elements: rgba(0, 0, 0, 0.08);
+                        
+                            --ea-theme-tabs-inactive-interface-color: rgba(255, 255, 255, 0.1);
+                        
+                            --ea-theme-tabs-tab-text-transform: capitalize;
+                        
+                    }
+                </style>
+            </custom-style>
+        
+    
+
+
+
+<ea-elements-loader elements="ea-network-nav, ea-player, ea-type-kit">
+</ea-elements-loader>
+
+
+    <ea-network-nav
+        unresolved
+        userData="/user-data"
+        content="//nds-network-nav.ea.com/es-es/network-nav"
+        login-url="/login"
+        logout-url="/logout"
+            
+                
+                    
+                        hide-logo
+                    
+                
+            
+    ></ea-network-nav>
+
+
+
+
+
+
+
+    
+        
+            
+                
+<ea-elements-loader elements="ea-local-nav-advanced, ea-link">
+</ea-elements-loader>
+<ea-local-nav-advanced
+    
+        aria-label-text = "Local"
+    
+    
+        home-text = "Need for Speed Payback"
+        home-tooltip = "Need for Speed Payback"
+        home-link = "/es-es/games/need-for-speed/need-for-speed-payback"
+    
+    
+        logo-image="https://media.contentapi.ea.com/content/dam/eacom/en-us/common/legacy-nfs-abbreviated-logo-1.svg"
+    
+    
+    
+        theme = "light"
+    
+    
+        shelf-type = "band"
+    
+    
+        open-drawer-text = "Menu"
+    
+    
+        close-drawer-text = "Close"
+    
+    
+        mini
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    unresolved
+>
+    
+
+    
+
+    
+        <a title="Need for Speed Payback" href="/es-es/games/need-for-speed/need-for-speed-payback">
+            Need for Speed Payback
+            
+                <img
+                    src="https://media.contentapi.ea.com/content/dam/eacom/en-us/common/legacy-nfs-abbreviated-logo-1.svg"
+                    
+                />
+            
+        </a>
+    
+
+    
+        
+            
+                <ea-link
+                    slot="local-nav-shelf-link"
+                    class="eapl-local-nav__shelf-link"
+                    text-color="dark"
+                    link-href="https://forums.needforspeed.com"
+                    link-title="Foros"
+                    link-text="Foros"
+                    unresolved
+                >
+                    <a href="https://forums.needforspeed.com">Foros</a>
+                </ea-link>
+            
+        
+    
+
+    
+        
+            
+
+    <ea-elements-loader elements="ea-link">
+    </ea-elements-loader>
+    <ea-link
+        
+            slot="local-nav-drawer-link"
+        
+        class="eapl-local-nav__drawer-link"
+        link-href="https://forums.needforspeed.com"
+        link-title="Foros"
+        link-text="Foros"
+        text-color="dark"
+        unresolved
+    >
+        <a href="https://forums.needforspeed.com">Foros</a>
+    </ea-link>
+
+
+        
+    
+
+    
+        
+
+
+    <ea-elements-loader elements="ea-cta-dropdown, ea-hybrid-modal-invoker">
+    </ea-elements-loader>
+
+    
+        <ea-cta-dropdown
+            slot="cta-dropdown"
+            theme="light"
+            cta-title-text="COMPRAR YA"
+            cta-link="/es-es/games/need-for-speed/need-for-speed-payback/buy"
+            border-color="light"
+            fill-color="none"
+            text-color="light"
+
+            
+            
+            
+            unresolved
+        >
+            
+
+            
+        </ea-cta-dropdown>
+    
+
+
+
+        
+            <ea-elements-loader elements="ea-local-nav-dropdown">
+            </ea-elements-loader>
+            <ea-local-nav-dropdown
+                slot="local-nav-dropdown"
+                theme="light"
+                menu-title=""
+                cta-title-text="COMPRAR YA"
+                cta-link="/es-es/games/need-for-speed/need-for-speed-payback/buy"
+                border-color="light"
+                fill-color="none"
+                text-color="light"
+                unresolved
+            >
+            
+            
+            </ea-local-nav-dropdown>
+        
+    
+</ea-local-nav-advanced>
+
+            
+        
+    
+
+
+
+
+
+<main>
+    
+
+
+<ea-elements-loader elements="ea-page-background">
+</ea-elements-loader>
+<ea-page-background
+    unresolved
+    layout="fixed"
+    background-color=""
+    
+>
+    
+
+
+    <ea-elements-loader elements="ea-image">
+    </ea-elements-loader>
+    <ea-image
+        unresolved
+        tooltip=""
+        smallest="https://media.contentapi.ea.com/content/dam/need-for-speed/common/2017/11/nfs-payback-texture-xlarge-img-2x.png.adapt.crop16x9.320w.png"
+        small="https://media.contentapi.ea.com/content/dam/need-for-speed/common/2017/11/nfs-payback-texture-xlarge-img-2x.png.adapt.crop16x9.767w.png"
+        medium="https://media.contentapi.ea.com/content/dam/need-for-speed/common/2017/11/nfs-payback-texture-xlarge-img-2x.png.adapt.crop16x9.1023w.png"
+        large="https://media.contentapi.ea.com/content/dam/need-for-speed/common/2017/11/nfs-payback-texture-xlarge-img-2x.png.adapt.crop16x9.1455w.png"
+        largest="https://media.contentapi.ea.com/content/dam/need-for-speed/common/2017/11/nfs-payback-texture-xlarge-img-2x.png.adapt.crop16x9.1920w.png"
+        
+        
+        
+        
+            slot="image"
+        
+    >
+        <img
+            src="https://media.contentapi.ea.com/content/dam/need-for-speed/common/2017/11/nfs-payback-texture-xlarge-img-2x.png.adapt.crop16x9.320w.png"
+            alt=""
+            srcset="https://media.contentapi.ea.com/content/dam/need-for-speed/common/2017/11/nfs-payback-texture-xlarge-img-2x.png.adapt.crop16x9.320w.png 320w, https://media.contentapi.ea.com/content/dam/need-for-speed/common/2017/11/nfs-payback-texture-xlarge-img-2x.png.adapt.crop16x9.767w.png 768w, https://media.contentapi.ea.com/content/dam/need-for-speed/common/2017/11/nfs-payback-texture-xlarge-img-2x.png.adapt.crop16x9.1023w.png 1024w, https://media.contentapi.ea.com/content/dam/need-for-speed/common/2017/11/nfs-payback-texture-xlarge-img-2x.png.adapt.crop16x9.1455w.png 1320w, https://media.contentapi.ea.com/content/dam/need-for-speed/common/2017/11/nfs-payback-texture-xlarge-img-2x.png.adapt.crop16x9.1920w.png 1456w" />
+    </ea-image>
+
+
+
+</ea-page-background>
+
+<ea-elements-loader elements="ea-hero">
+</ea-elements-loader>
+<ea-hero
+    
+        layout="large"
+    
+    
+        text-position="right"
+    
+    
+        text-align="center"
+    
+    
+        text-color="light"
+    
+    
+    
+    
+    
+    
+    
+        background-color="light"
+    
+    
+    
+    
+    
+    
+    
+        image-smallest="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-mountains-sc02-sh010.jpg.adapt.crop3x5.320w.jpg"
+        image-small="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-mountains-sc02-sh010.jpg.adapt.crop3x5.767w.jpg"
+        image-medium="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-mountains-sc02-sh010.jpg.adapt.crop3x2.1023w.jpg"
+        image-large="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-mountains-sc02-sh010.jpg.adapt.crop3x2.1455w.jpg"
+        image-largest="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-mountains-sc02-sh010.jpg.adapt.crop16x9.1920w.jpg"
+        image-tooltip=""
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        logo-image-smallest="https://media.contentapi.ea.com/content/dam/need-for-speed/common/nfs-payback-primarylogo-color1-rgb.png.adapt.crop3x5.320w.png"
+        logo-image-small="https://media.contentapi.ea.com/content/dam/need-for-speed/common/nfs-payback-primarylogo-color1-rgb.png.adapt.crop3x5.767w.png"
+        logo-image-medium="https://media.contentapi.ea.com/content/dam/need-for-speed/common/nfs-payback-primarylogo-color1-rgb.png.adapt.crop3x2.1023w.png"
+        logo-image-large="https://media.contentapi.ea.com/content/dam/need-for-speed/common/nfs-payback-primarylogo-color1-rgb.png.adapt.crop3x2.1455w.png"
+        logo-image-largest="https://media.contentapi.ea.com/content/dam/need-for-speed/common/nfs-payback-primarylogo-color1-rgb.png.adapt.crop16x9.1920w.png"
+        logo-image-tooltip=""
+    
+    
+    
+    
+    
+    
+    
+        spacing-bottom="none"
+    
+    
+        spacing-top="none"
+    
+    
+        scrim-color="dark"
+    
+    
+        scrim-opacity="medium"
+    
+    
+    unresolved
+    
+        custom-styles="{}"
+    
+    
+    
+>
+    
+    
+    
+    
+    
+        <img
+            src="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-mountains-sc02-sh010.jpg.adapt.crop3x5.320w.jpg"
+            alt=""
+            srcset="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-mountains-sc02-sh010.jpg.adapt.crop3x5.320w.jpg 320w, https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-mountains-sc02-sh010.jpg.adapt.crop3x5.767w.jpg 768w, https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-mountains-sc02-sh010.jpg.adapt.crop3x2.1023w.jpg 1024w, https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-mountains-sc02-sh010.jpg.adapt.crop3x2.1455w.jpg 1320w, https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-mountains-sc02-sh010.jpg.adapt.crop16x9.1920w.jpg 1456w"
+        />
+    
+    
+    
+    
+    
+    
+    
+    
+        <img
+            src="https://media.contentapi.ea.com/content/dam/need-for-speed/common/nfs-payback-primarylogo-color1-rgb.png.adapt.crop3x5.320w.png"
+            alt=""
+            srcset="https://media.contentapi.ea.com/content/dam/need-for-speed/common/nfs-payback-primarylogo-color1-rgb.png.adapt.crop3x5.320w.png 320w, https://media.contentapi.ea.com/content/dam/need-for-speed/common/nfs-payback-primarylogo-color1-rgb.png.adapt.crop3x5.767w.png 768w, https://media.contentapi.ea.com/content/dam/need-for-speed/common/nfs-payback-primarylogo-color1-rgb.png.adapt.crop3x2.1023w.png 1024w, https://media.contentapi.ea.com/content/dam/need-for-speed/common/nfs-payback-primarylogo-color1-rgb.png.adapt.crop3x2.1455w.png 1320w, https://media.contentapi.ea.com/content/dam/need-for-speed/common/nfs-payback-primarylogo-color1-rgb.png.adapt.crop16x9.1920w.png 1456w"
+        />
+    
+    
+    
+    
+<ea-elements-loader elements="ea-html5-video">
+</ea-elements-loader>
+<ea-html5-video
+    slot="html5-video"
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        webm-src="https://media.contentapi.ea.com/content/dam/need-for-speed/videos/2017/10/nfsp-story-blockbuster-03.webm"
+    
+
+    
+        mp4-src="https://media.contentapi.ea.com/content/dam/need-for-speed/videos/2017/10/nfsp-story-blockbuster-03.mp4"
+    
+
+    
+
+    
+
+    
+        autoplay=""
+    
+
+    
+
+    
+
+    
+        loop=""
+    
+
+    
+        muted=""
+    
+
+    
+
+    
+        poster="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-mountains-sc02-sh010.jpg.adapt.crop16x9.jpg"
+    
+    unresolved
+>
+    
+</ea-html5-video>
+
+    
+<ea-elements-loader elements="ea-cta">
+</ea-elements-loader>
+<ea-cta
+    
+        slot="cta"
+    
+    
+        type="standard"
+    
+    
+    
+    
+        link-text="VER TRÁILER"
+    
+    
+        icon="play"
+    
+    
+    
+        fill-color="none"
+    
+    
+        text-color="light"
+    
+    
+        stroke-color="light"
+    
+    
+    
+    
+    
+    
+        intent="navigation"
+    
+    
+        modal-id="payback"
+    
+    
+    
+        emphasis="primary"
+    
+    
+    
+    
+    
+    unresolved
+>
+    <a
+        
+        
+    >
+        
+            VER TRÁILER
+        
+    </a>
+</ea-cta>
+
+    
+</ea-hero>
+
+<ea-elements-loader elements="ea-section">
+</ea-elements-loader>
+<ea-section
+    unresolved
+    slot="section"
+    
+    
+        type="full-bleed"
+    
+    
+        layout="100"
+    
+    
+    
+        background-color="none"
+    
+    
+    
+        background-overflow="visible"
+    
+    
+        spacing-top="medium"
+    
+    
+        spacing-bottom="none"
+    
+    
+    
+    
+    
+>
+    
+    
+
+
+<ea-section-column
+    slot="section-column"
+    
+        indent-left="1"
+    
+    
+        indent-right="1"
+    
+    
+        text-align="left"
+    
+    
+    
+>
+    
+<ea-elements-loader elements="ea-subheading">
+</ea-elements-loader>
+<ea-subheading
+    unresolved
+    
+        type="ordered"
+    
+    
+        layout="small"
+    
+    
+        text-align="center"
+    
+    
+        text-color="light"
+    
+    
+    
+        title-text="BIENVENIDO AL VALLE FORTUNE"
+    
+    
+        subtitle-text="Donde las apuestas siempre son altas"
+    
+    
+        spacing-top="medium"
+    
+    
+        spacing-bottom="medium"
+    
+>
+    
+    
+        <h3>BIENVENIDO AL VALLE FORTUNE</h3>
+    
+    
+        <h4>Donde las apuestas siempre son altas</h4>
+    
+</ea-subheading>
+
+<ea-elements-loader elements="ea-grid">
+</ea-elements-loader>
+<ea-grid
+    
+
+    type="ordered"
+
+
+    tile-media-shape="rectangle"
+
+
+
+    layout="3up"
+
+
+    tile-type="vertical"
+
+
+    tile-text-align="center"
+
+
+    tile-text-color="light"
+
+
+    tile-color="none"
+
+
+
+
+
+
+
+    hide-ctas
+
+
+    hide-brand-stroke
+
+
+    hide-byline
+
+
+    spacing-top="small"
+
+
+    spacing-bottom="medium"
+
+
+
+
+    
+    
+    
+        tile-scrim-color="none"
+    
+    
+        tile-scrim-opacity="medium"
+    
+    tile-align="center"
+    
+    
+    
+    
+    
+    
+    
+    animate-in-order=""
+    animate-out-order=""
+    
+    unresolved
+>
+    
+    
+<ea-elements-loader elements="ea-tile">
+</ea-elements-loader>
+<ea-container
+    slot="container"
+    
+        filter-key="All"
+    
+    >
+    <ea-tile
+        unresolved
+        slot="tile"
+        style="--ea-animation-index:0"
+        
+        
+        
+        
+            media="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/05/nfs-payback-high-stakes-competition.jpg.adapt.crop16x9.652w.jpg"
+        
+        
+        
+        
+        
+            title-text="Competición con grandes apuestas"
+        
+        
+        
+        
+        
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    >
+        
+            <h3>Competición con grandes apuestas</h3>
+        
+        
+        
+        
+        <ea-tile-copy slot="copy">
+        
+            <p>Entra en racha y gana a lo grande con una jugabilidad llena de riesgos y recompensas. Que vuelvan las persecuciones policiales solo puede significar una cosa: las apuestas son más altas que nunca.</p>
+        
+        </ea-tile-copy>
+        
+        
+            
+        
+        
+    </ea-tile>
+</ea-container>
+
+<ea-elements-loader elements="ea-tile">
+</ea-elements-loader>
+<ea-container
+    slot="container"
+    
+        filter-key="All"
+    
+    >
+    <ea-tile
+        unresolved
+        slot="tile"
+        style="--ea-animation-index:1"
+        
+        
+        
+        
+            media="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/05/nfs-payback-action-driving-fantasy.jpg.adapt.crop16x9.652w.jpg"
+        
+        
+        
+        
+        
+            title-text="Disfruta de un mundo fantástico lleno de acción y conducción"
+        
+        
+        
+        
+        
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    >
+        
+            <h3>Disfruta de un mundo fantástico lleno de acción y conducción</h3>
+        
+        
+        
+        
+        <ea-tile-copy slot="copy">
+        
+            <p>Juega una aventura explosiva como uno de los tres personajes jugables unidos por un objetivo común: la venganza.</p>
+        
+        </ea-tile-copy>
+        
+        
+            
+        
+        
+    </ea-tile>
+</ea-container>
+
+<ea-elements-loader elements="ea-tile">
+</ea-elements-loader>
+<ea-container
+    slot="container"
+    
+        filter-key="All"
+    
+    >
+    <ea-tile
+        unresolved
+        slot="tile"
+        style="--ea-animation-index:2"
+        
+        
+        
+        
+            media="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/05/nfs-payback-the-garage.jpg.adapt.crop16x9.652w.jpg"
+        
+        
+        
+        
+        
+            title-text="El garaje"
+        
+        
+        
+        
+        
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    >
+        
+            <h3>El garaje</h3>
+        
+        
+        
+        
+        <ea-tile-copy slot="copy">
+        
+            <p>Crea coches únicos con grandes prestaciones y la estética más personalizable de la historia.</p>
+        
+        </ea-tile-copy>
+        
+        
+            
+        
+        
+    </ea-tile>
+</ea-container>
+
+    
+
+
+</ea-grid>
+
+</ea-section-column>
+
+    
+</ea-section>
+
+<ea-elements-loader elements="ea-section">
+</ea-elements-loader>
+<ea-section
+    unresolved
+    slot="section"
+    
+    
+        type="railed"
+    
+    
+        layout="100"
+    
+    
+    
+        background-color="none"
+    
+    
+    
+        background-overflow="visible"
+    
+    
+        spacing-top="none"
+    
+    
+        spacing-bottom="none"
+    
+    
+        mp4-src=""
+    
+    
+        webm-src=""
+    
+    
+    
+>
+    
+    
+
+
+<ea-section-column
+    slot="section-column"
+    
+        indent-left="1"
+    
+    
+        indent-right="1"
+    
+    
+        text-align="center"
+    
+    
+    
+>
+    
+<ea-elements-loader elements="ea-text">
+</ea-elements-loader>
+<ea-text
+    unresolved
+    slot="text"
+    
+        text-color="light"
+    
+>
+    <p>El olor a rueda quemada que invade las calles de la ciudad es todo un indicio de que esta mañana no ha sido especialmente tranquila. Los rayos de luz ponen fin a la oscuridad de la noche e iluminan la ciudad de Silver Rock a medida que el sol se abre paso por la región del valle Fortune.&nbsp;<br></p>
+    
+</ea-text>
+
+<ea-elements-loader elements="ea-subheading">
+</ea-elements-loader>
+<ea-subheading
+    unresolved
+    
+        type="ordered"
+    
+    
+        layout="small"
+    
+    
+        text-align="left"
+    
+    
+        text-color="dark"
+    
+    
+    
+    
+    
+        spacing-top="medium"
+    
+    
+        spacing-bottom="medium"
+    
+>
+    
+    
+    
+</ea-subheading>
+
+
+    <div>
+        <img src="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-game-map-1.jpg" style="width: 100%;" />
+    </div>
+
+
+<ea-elements-loader elements="ea-subheading">
+</ea-elements-loader>
+<ea-subheading
+    unresolved
+    
+        type="ordered"
+    
+    
+        layout="small"
+    
+    
+        text-align="left"
+    
+    
+        text-color="dark"
+    
+    
+    
+    
+    
+        spacing-top="medium"
+    
+    
+        spacing-bottom="medium"
+    
+>
+    
+    
+    
+</ea-subheading>
+
+<ea-elements-loader elements="ea-text">
+</ea-elements-loader>
+<ea-text
+    unresolved
+    slot="text"
+    
+        text-color="light"
+    
+>
+    <p>Ve al desierto Liberty, atraviesa las carreteras montañosas del monte Providence o simplemente párate a admirar la puesta de sol de Silver Canyon. El valle Fortune lo tiene todo.<br></p>
+    
+</ea-text>
+
+</ea-section-column>
+
+    
+</ea-section>
+
+<ea-elements-loader elements="ea-section">
+</ea-elements-loader>
+<ea-section
+    unresolved
+    slot="section"
+    
+    
+        type="full-bleed"
+    
+    
+        layout="100"
+    
+    
+    
+        background-color="none"
+    
+    
+    
+        background-overflow="visible"
+    
+    
+        spacing-top="medium"
+    
+    
+        spacing-bottom="none"
+    
+    
+    
+    
+    
+>
+    
+    
+
+
+<ea-section-column
+    slot="section-column"
+    
+        indent-left="1"
+    
+    
+        indent-right="1"
+    
+    
+        text-align="left"
+    
+    
+    
+>
+    
+<ea-elements-loader elements="ea-grid">
+</ea-elements-loader>
+<ea-grid
+    
+
+    type="ordered"
+
+
+    tile-media-shape="rectangle"
+
+
+
+    layout="3up"
+
+
+    tile-type="vertical"
+
+
+    tile-text-align="center"
+
+
+    tile-text-color="light"
+
+
+    tile-color="none"
+
+
+
+
+
+
+
+    hide-ctas
+
+
+    hide-brand-stroke
+
+
+
+    spacing-top="small"
+
+
+    spacing-bottom="none"
+
+
+
+
+    
+    
+    
+        tile-scrim-color="none"
+    
+    
+        tile-scrim-opacity="medium"
+    
+    tile-align="center"
+    
+    
+    
+    
+    
+    
+    
+    animate-in-order=""
+    animate-out-order=""
+    
+    unresolved
+>
+    
+    
+<ea-elements-loader elements="ea-tile">
+</ea-elements-loader>
+<ea-container
+    slot="container"
+    
+        filter-key="All"
+    
+    >
+    <ea-tile
+        unresolved
+        slot="tile"
+        style="--ea-animation-index:0"
+        
+        
+        
+        
+            media="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/08/nfsp-high-stakes-cop-ai.jpg.adapt.crop16x9.652w.jpg"
+        
+        
+        
+            eyebrow-text="IA de la poli"
+        
+        
+        
+            title-text="Los polis son más agresivos que antes."
+        
+        
+        
+        
+        
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    >
+        
+            <h3>Los polis son más agresivos que antes.</h3>
+        
+        
+            <div>IA de la poli</div>
+            
+        
+        
+        
+        <ea-tile-copy slot="copy">
+        
+            <p>La nueva IA mejorada de la poli se asegura de que los policías trabajan todos a una, operan en equipo y adaptan su comportamiento en función de tu velocidad. Acaba con ellos para sacarles ventaja y si te embisten, asegúrate de embestirles más fuerte.</p>
+        
+        </ea-tile-copy>
+        
+        
+            
+        
+        
+    </ea-tile>
+</ea-container>
+
+<ea-elements-loader elements="ea-tile">
+</ea-elements-loader>
+<ea-container
+    slot="container"
+    
+        filter-key="All"
+    
+    >
+    <ea-tile
+        unresolved
+        slot="tile"
+        style="--ea-animation-index:1"
+        
+        
+        
+        
+            media="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/08/nfsp-high-stakes-sidebet.jpg.adapt.crop16x9.652w.jpg"
+        
+        
+        
+            eyebrow-text="No tienes nada que perder."
+        
+        
+        
+            title-text="Confía en ti y anímate con las apuestas secundarias"
+        
+        
+        
+        
+        
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    >
+        
+            <h3>Confía en ti y anímate con las apuestas secundarias</h3>
+        
+        
+            <div>No tienes nada que perder.</div>
+            
+        
+        
+        
+        <ea-tile-copy slot="copy">
+        
+            <p>Haz una apuesta secundaria antes de cada evento. Créete lo que vales y gana a lo grande. Gana la apuesta y el evento para hacerte con una recompensa. Si pierdes, te irás con las manos vacías.</p>
+        
+        </ea-tile-copy>
+        
+        
+            
+        
+        
+    </ea-tile>
+</ea-container>
+
+<ea-elements-loader elements="ea-tile">
+</ea-elements-loader>
+<ea-container
+    slot="container"
+    
+        filter-key="All"
+    
+    >
+    <ea-tile
+        unresolved
+        slot="tile"
+        style="--ea-animation-index:2"
+        
+        
+        
+        
+            media="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/08/nfsp-high-stakes-autolog-02.jpg.adapt.crop16x9.652w.jpg"
+        
+        
+        
+            eyebrow-text="Puedes adquirir piezas de muchas formas"
+        
+        
+        
+            title-text="Recomendaciones de Autolog"
+        
+        
+        
+        
+        
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    >
+        
+            <h3>Recomendaciones de Autolog</h3>
+        
+        
+            <div>Puedes adquirir piezas de muchas formas</div>
+            
+        
+        
+        
+        <ea-tile-copy slot="copy">
+        
+            <p>En el valle Fortune, el paraíso de los apostadores, siempre puedes encontrar a alguien que se la juegue contra ti. Da igual si el que te desafía es un rival al que no conoces o un amigo muy cercano: gánales para hacerte un hueco en el marcador y llevarte la recompensa que eso conlleva.</p>
+        
+        </ea-tile-copy>
+        
+        
+            
+        
+        
+    </ea-tile>
+</ea-container>
+
+    
+
+
+</ea-grid>
+
+</ea-section-column>
+
+    
+</ea-section>
+
+<ea-elements-loader elements="ea-section">
+</ea-elements-loader>
+<ea-section
+    unresolved
+    slot="section"
+    
+    
+        type="railed"
+    
+    
+        layout="100"
+    
+    
+    
+        background-color="none"
+    
+    
+    
+        background-overflow="visible"
+    
+    
+        spacing-top="none"
+    
+    
+        spacing-bottom="none"
+    
+    
+    
+    
+    
+>
+    
+    
+
+
+<ea-section-column
+    slot="section-column"
+    
+        indent-left="1"
+    
+    
+        indent-right="1"
+    
+    
+        text-align="center"
+    
+    
+    
+>
+    
+<ea-elements-loader elements="ea-subheading">
+</ea-elements-loader>
+<ea-subheading
+    unresolved
+    
+        type="ordered"
+    
+    
+        layout="small"
+    
+    
+        text-align="left"
+    
+    
+        text-color="dark"
+    
+    
+    
+    
+    
+        spacing-top="medium"
+    
+    
+        spacing-bottom="medium"
+    
+>
+    
+    
+    
+</ea-subheading>
+
+<ea-elements-loader elements="ea-subheading">
+</ea-elements-loader>
+<ea-subheading
+    unresolved
+    
+        type="ordered"
+    
+    
+        layout="small"
+    
+    
+        text-align="center"
+    
+    
+        text-color="light"
+    
+    
+    
+        title-text="Conoce a la banda"
+    
+    
+    
+        spacing-top="medium"
+    
+    
+        spacing-bottom="medium"
+    
+>
+    
+    
+        <h3>Conoce a la banda</h3>
+    
+    
+</ea-subheading>
+
+<ea-elements-loader elements="ea-text">
+</ea-elements-loader>
+<ea-text
+    unresolved
+    slot="text"
+    
+        text-color="light"
+    
+>
+    <p>Vuelve a unirte con tu banda en los bajos fondos del valle Fortune para vengaros de La Casa, una malvada sociedad que está al mando de los casinos, los criminales y la policía de la ciudad. Las apuestas son altas en este paraíso del juego corrupto y La Casa siempre gana. Juega eventos muy diversos como Tyler, Mac y Jess. Gánate el respeto del mundo clandestino del valle Fortune y disputa la carrera definitiva para derribar a La Casa de una vez por todas.&nbsp;</p>
+    
+</ea-text>
+
+</ea-section-column>
+
+    
+</ea-section>
+
+<ea-elements-loader elements="ea-section">
+</ea-elements-loader>
+<ea-section
+    unresolved
+    slot="section"
+    
+    
+        type="full-bleed"
+    
+    
+        layout="100"
+    
+    
+    
+        background-color="none"
+    
+    
+    
+        background-overflow="visible"
+    
+    
+        spacing-top="medium"
+    
+    
+        spacing-bottom="none"
+    
+    
+    
+    
+    
+>
+    
+    
+
+
+<ea-section-column
+    slot="section-column"
+    
+        indent-left=""
+    
+    
+        indent-right=""
+    
+    
+        text-align="left"
+    
+    
+    
+>
+    
+<ea-elements-loader elements="ea-grid">
+</ea-elements-loader>
+<ea-grid
+    
+
+    type="ordered"
+
+
+    tile-media-shape="rectangle"
+
+
+
+    layout="3up"
+
+
+    tile-type="vertical"
+
+
+    tile-text-align="center"
+
+
+    tile-text-color="light"
+
+
+    tile-color="none"
+
+
+
+
+
+
+
+
+    hide-brand-stroke
+
+
+
+    spacing-top="small"
+
+
+    spacing-bottom="none"
+
+
+
+
+    
+    
+    
+        tile-scrim-color="none"
+    
+    
+        tile-scrim-opacity="medium"
+    
+    tile-align="center"
+    
+    
+    
+    
+    
+    
+    
+    animate-in-order=""
+    animate-out-order=""
+    
+    unresolved
+>
+    
+    
+<ea-elements-loader elements="ea-tile">
+</ea-elements-loader>
+<ea-container
+    slot="container"
+    
+        filter-key="All"
+    
+    >
+    <ea-tile
+        unresolved
+        slot="tile"
+        style="--ea-animation-index:0"
+        
+        
+        
+        
+            media="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/10/nfsp-story-tyler-standing-2x.jpg.adapt.crop16x9.652w.jpg"
+        
+        
+        
+        
+        
+            title-text="Tyler Morgan (Ty)"
+        
+        
+        
+        
+        
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    >
+        
+            <h3>Tyler Morgan (Ty)</h3>
+        
+        
+        
+        
+        <ea-tile-copy slot="copy">
+        
+            <p>Ty es un piloto de carreras nato, con un sexto sentido al volante y una determinación implacable para conseguir la victoria, por lo que es un rival formidable en las carreras urbanas y las de aceleración.</p>
+        
+        </ea-tile-copy>
+        
+        
+            
+        
+        
+    </ea-tile>
+</ea-container>
+
+<ea-elements-loader elements="ea-tile">
+</ea-elements-loader>
+<ea-container
+    slot="container"
+    
+        filter-key="All"
+    
+    >
+    <ea-tile
+        unresolved
+        slot="tile"
+        style="--ea-animation-index:1"
+        
+        
+        
+        
+            media="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/10/nfsp-story-jess-2x.jpg.adapt.crop16x9.652w.jpg"
+        
+        
+        
+        
+        
+            title-text="Jessica Miller (Jess)"
+        
+        
+        
+        
+        
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    >
+        
+            <h3>Jessica Miller (Jess)</h3>
+        
+        
+        
+        
+        <ea-tile-copy slot="copy">
+        
+            <p>Jess es una conductora a sueldo para gente rica y famosa y siempre puede sacarte de problemas en las situaciones más complicadas.</p>
+        
+        </ea-tile-copy>
+        
+        
+            
+        
+        
+    </ea-tile>
+</ea-container>
+
+<ea-elements-loader elements="ea-tile">
+</ea-elements-loader>
+<ea-container
+    slot="container"
+    
+        filter-key="All"
+    
+    >
+    <ea-tile
+        unresolved
+        slot="tile"
+        style="--ea-animation-index:2"
+        
+        
+        
+        
+            media="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/10/nfsp-story-mac-2x.jpg.adapt.crop16x9.652w.jpg"
+        
+        
+        
+        
+        
+            title-text="Sean McAlister (Mac)"
+        
+        
+        
+        
+        
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    >
+        
+            <h3>Sean McAlister (Mac)</h3>
+        
+        
+        
+        
+        <ea-tile-copy slot="copy">
+        
+            <p>Mac es el especialista de la banda del campo a través y de los derrapes. Es un conductor despreocupado con un estilo único e impredecible. Le encanta darlo todo en la pista y tomar curvas imposibles.</p>
+        
+        </ea-tile-copy>
+        
+        
+            
+        
+        
+    </ea-tile>
+</ea-container>
+
+    
+
+
+</ea-grid>
+
+</ea-section-column>
+
+    
+</ea-section>
+
+<ea-elements-loader elements="ea-section">
+</ea-elements-loader>
+<ea-section
+    unresolved
+    slot="section"
+    
+    
+        type="railed"
+    
+    
+        layout="100"
+    
+    
+    
+        background-color="none"
+    
+    
+    
+        background-overflow="hidden"
+    
+    
+        spacing-top="none"
+    
+    
+        spacing-bottom="small"
+    
+    
+    
+    
+    
+>
+    
+    
+
+
+<ea-section-column
+    slot="section-column"
+    
+    
+    
+        text-align="left"
+    
+    
+    
+>
+    
+<ea-elements-loader elements="ea-subheading">
+</ea-elements-loader>
+<ea-subheading
+    unresolved
+    
+        type="ordered"
+    
+    
+        layout="small"
+    
+    
+        text-align="center"
+    
+    
+        text-color="light"
+    
+    
+    
+        title-text="Formas de jugar"
+    
+    
+    
+        spacing-top="none"
+    
+    
+        spacing-bottom="medium"
+    
+>
+    
+    
+        <h3>Formas de jugar</h3>
+    
+    
+</ea-subheading>
+
+<ea-elements-loader elements="ea-grid">
+</ea-elements-loader>
+<ea-grid
+    
+
+    type="ordered"
+
+
+    tile-media-shape="rectangle"
+
+
+
+    layout="3up"
+
+
+    tile-type="vertical"
+
+
+    tile-text-align="center"
+
+
+    tile-text-color="light"
+
+
+    tile-color="none"
+
+
+
+
+
+
+
+    hide-ctas
+
+
+    hide-brand-stroke
+
+
+
+    spacing-top="small"
+
+
+    spacing-bottom="none"
+
+
+
+
+    
+    
+    
+        tile-scrim-color="none"
+    
+    
+        tile-scrim-opacity="medium"
+    
+    tile-align="center"
+    
+    
+    
+    
+    
+    
+    
+    animate-in-order=""
+    animate-out-order=""
+    
+    unresolved
+>
+    
+    
+<ea-elements-loader elements="ea-tile">
+</ea-elements-loader>
+<ea-container
+    slot="container"
+    
+        filter-key="All"
+    
+    >
+    <ea-tile
+        unresolved
+        slot="tile"
+        style="--ea-animation-index:0"
+        
+        
+        
+        
+            media="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/07/nfsp-customization-08.jpg.adapt.crop16x9.652w.jpg"
+        
+        
+        
+        
+        
+            title-text="El Piloto"
+        
+        
+        
+        
+        
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    >
+        
+            <h3>El Piloto</h3>
+        
+        
+        
+        
+        <ea-tile-copy slot="copy">
+        
+            <p>Pisa el acelerador y no dejes que nadie te pare. Hazte con la victoria, la velocidad lo es todo.</p>
+        
+        </ea-tile-copy>
+        
+        
+            
+        
+        
+    </ea-tile>
+</ea-container>
+
+<ea-elements-loader elements="ea-tile">
+</ea-elements-loader>
+<ea-container
+    slot="container"
+    
+        filter-key="All"
+    
+    >
+    <ea-tile
+        unresolved
+        slot="tile"
+        style="--ea-animation-index:1"
+        
+        
+        
+        
+            media="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/10/nfsp-story-ways-to-play-chase-2x.jpg.adapt.crop16x9.652w.jpg"
+        
+        
+        
+        
+        
+            title-text="La Especialista"
+        
+        
+        
+        
+        
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    >
+        
+            <h3>La Especialista</h3>
+        
+        
+        
+        
+        <ea-tile-copy slot="copy">
+        
+            <p>Haz trabajillos arriesgados y con grandes recompensas, pero estate atento por si aparece la poli.</p>
+        
+        </ea-tile-copy>
+        
+        
+            
+        
+        
+    </ea-tile>
+</ea-container>
+
+<ea-elements-loader elements="ea-tile">
+</ea-elements-loader>
+<ea-container
+    slot="container"
+    
+        filter-key="All"
+    
+    >
+    <ea-tile
+        unresolved
+        slot="tile"
+        style="--ea-animation-index:2"
+        
+        
+        
+        
+            media="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/08/nfsp-bmw-hub-05.jpg.adapt.crop16x9.652w.jpg"
+        
+        
+        
+        
+        
+            title-text="El Showman"
+        
+        
+        
+        
+        
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    >
+        
+            <h3>El Showman</h3>
+        
+        
+        
+        
+        <ea-tile-copy slot="copy">
+        
+            <p>Abandona las carreteras asfaltadas, ve campo a través y haz que tus rivales muerdan el polvo.</p>
+        
+        </ea-tile-copy>
+        
+        
+            
+        
+        
+    </ea-tile>
+</ea-container>
+
+    
+
+
+</ea-grid>
+
+</ea-section-column>
+
+    
+</ea-section>
+
+<ea-elements-loader elements="ea-hero">
+</ea-elements-loader>
+<ea-hero
+    
+        layout="large"
+    
+    
+        text-position="left"
+    
+    
+        text-align="left"
+    
+    
+        text-color="light"
+    
+    
+    
+    
+    
+    
+    
+        background-color="light"
+    
+    
+    
+    
+        title-text="Silver Canyon"
+    
+    
+        subtitle-text="¿Quieres disfrutar de unas buenas vistas? Entonces Silver Canyon es el sitio que buscas."
+    
+    
+    
+        image-smallest="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-canyons-sc02-sh040.jpg.adapt.crop3x5.320w.jpg"
+        image-small="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-canyons-sc02-sh040.jpg.adapt.crop3x5.767w.jpg"
+        image-medium="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-canyons-sc02-sh040.jpg.adapt.crop3x2.1023w.jpg"
+        image-large="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-canyons-sc02-sh040.jpg.adapt.crop3x2.1455w.jpg"
+        image-largest="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-canyons-sc02-sh040.jpg.adapt.crop16x9.1920w.jpg"
+        image-tooltip=""
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        spacing-bottom="none"
+    
+    
+        spacing-top="none"
+    
+    
+        scrim-color="dark"
+    
+    
+        scrim-opacity="medium"
+    
+    
+    unresolved
+    
+        custom-styles="{}"
+    
+    
+    
+>
+    
+        <h1>Silver Canyon</h1>
+    
+    
+        <h2>¿Quieres disfrutar de unas buenas vistas? Entonces Silver Canyon es el sitio que buscas.</h2>
+    
+    
+    
+    
+        <img
+            src="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-canyons-sc02-sh040.jpg.adapt.crop3x5.320w.jpg"
+            alt=""
+            srcset="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-canyons-sc02-sh040.jpg.adapt.crop3x5.320w.jpg 320w, https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-canyons-sc02-sh040.jpg.adapt.crop3x5.767w.jpg 768w, https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-canyons-sc02-sh040.jpg.adapt.crop3x2.1023w.jpg 1024w, https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-canyons-sc02-sh040.jpg.adapt.crop3x2.1455w.jpg 1320w, https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-canyons-sc02-sh040.jpg.adapt.crop16x9.1920w.jpg 1456w"
+        />
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<ea-elements-loader elements="ea-html5-video">
+</ea-elements-loader>
+<ea-html5-video
+    slot="html5-video"
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        webm-src="https://media.contentapi.ea.com/content/dam/need-for-speed/videos/2017/09/nfsp-world-environment-canyons-sc02-sh040-webmhd.webm"
+    
+
+    
+        mp4-src="https://media.contentapi.ea.com/content/dam/need-for-speed/videos/2017/09/nfsp-world-environment-canyons-sc02-sh040-mp4.mp4"
+    
+
+    
+
+    
+
+    
+        autoplay=""
+    
+
+    
+
+    
+
+    
+        loop=""
+    
+
+    
+        muted=""
+    
+
+    
+
+    
+        poster="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-canyons-sc02-sh040.jpg.adapt.crop16x9.jpg"
+    
+    unresolved
+>
+    
+</ea-html5-video>
+
+    
+    
+</ea-hero>
+
+<ea-elements-loader elements="ea-hero">
+</ea-elements-loader>
+<ea-hero
+    
+        layout="large"
+    
+    
+        text-position="right"
+    
+    
+        text-align="right"
+    
+    
+        text-color="light"
+    
+    
+    
+    
+    
+    
+    
+        background-color="light"
+    
+    
+    
+    
+        title-text="Desierto Liberty"
+    
+    
+        subtitle-text="Conduce por el desierto con total libertad."
+    
+    
+    
+        image-smallest="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-desert-sc02-sh020.jpg.adapt.crop3x5.320w.jpg"
+        image-small="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-desert-sc02-sh020.jpg.adapt.crop3x5.767w.jpg"
+        image-medium="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-desert-sc02-sh020.jpg.adapt.crop3x2.1023w.jpg"
+        image-large="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-desert-sc02-sh020.jpg.adapt.crop3x2.1455w.jpg"
+        image-largest="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-desert-sc02-sh020.jpg.adapt.crop16x9.1920w.jpg"
+        image-tooltip=""
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        spacing-bottom="none"
+    
+    
+    
+        scrim-color="dark"
+    
+    
+        scrim-opacity="medium"
+    
+    
+    unresolved
+    
+        custom-styles="{}"
+    
+    
+    
+>
+    
+        <h1>Desierto Liberty</h1>
+    
+    
+        <h2>Conduce por el desierto con total libertad.</h2>
+    
+    
+    
+    
+        <img
+            src="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-desert-sc02-sh020.jpg.adapt.crop3x5.320w.jpg"
+            alt=""
+            srcset="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-desert-sc02-sh020.jpg.adapt.crop3x5.320w.jpg 320w, https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-desert-sc02-sh020.jpg.adapt.crop3x5.767w.jpg 768w, https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-desert-sc02-sh020.jpg.adapt.crop3x2.1023w.jpg 1024w, https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-desert-sc02-sh020.jpg.adapt.crop3x2.1455w.jpg 1320w, https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-desert-sc02-sh020.jpg.adapt.crop16x9.1920w.jpg 1456w"
+        />
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<ea-elements-loader elements="ea-html5-video">
+</ea-elements-loader>
+<ea-html5-video
+    slot="html5-video"
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        webm-src="https://media.contentapi.ea.com/content/dam/need-for-speed/videos/2017/09/nfsp-world-environment-desert-sc02-sh020-webmhd.webm"
+    
+
+    
+        mp4-src="https://media.contentapi.ea.com/content/dam/need-for-speed/videos/2017/09/nfsp-world-environment-desert-sc02-sh020-mp4.mp4"
+    
+
+    
+
+    
+
+    
+        autoplay=""
+    
+
+    
+
+    
+
+    
+        loop=""
+    
+
+    
+        muted=""
+    
+
+    
+
+    
+        poster="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-desert-sc02-sh020.jpg.adapt.crop16x9.jpg"
+    
+    unresolved
+>
+    
+</ea-html5-video>
+
+    
+    
+</ea-hero>
+
+<ea-elements-loader elements="ea-hero">
+</ea-elements-loader>
+<ea-hero
+    
+        layout="large"
+    
+    
+        text-position="left"
+    
+    
+        text-align="left"
+    
+    
+        text-color="light"
+    
+    
+    
+    
+    
+    
+    
+        background-color="light"
+    
+    
+    
+    
+        title-text="Silver Rock"
+    
+    
+        subtitle-text="¿Qué brillará más? ¿Las luces de la ciudad o tu coche?"
+    
+    
+    
+        image-smallest="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-city-sc02-sh030.jpg.adapt.crop3x5.320w.jpg"
+        image-small="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-city-sc02-sh030.jpg.adapt.crop3x5.767w.jpg"
+        image-medium="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-city-sc02-sh030.jpg.adapt.crop3x2.1023w.jpg"
+        image-large="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-city-sc02-sh030.jpg.adapt.crop3x2.1455w.jpg"
+        image-largest="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-city-sc02-sh030.jpg.adapt.crop16x9.1920w.jpg"
+        image-tooltip=""
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        spacing-bottom="none"
+    
+    
+    
+        scrim-color="dark"
+    
+    
+        scrim-opacity="medium"
+    
+    
+    unresolved
+    
+        custom-styles="{}"
+    
+    
+    
+>
+    
+        <h1>Silver Rock</h1>
+    
+    
+        <h2>¿Qué brillará más? ¿Las luces de la ciudad o tu coche?</h2>
+    
+    
+    
+    
+        <img
+            src="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-city-sc02-sh030.jpg.adapt.crop3x5.320w.jpg"
+            alt=""
+            srcset="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-city-sc02-sh030.jpg.adapt.crop3x5.320w.jpg 320w, https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-city-sc02-sh030.jpg.adapt.crop3x5.767w.jpg 768w, https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-city-sc02-sh030.jpg.adapt.crop3x2.1023w.jpg 1024w, https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-city-sc02-sh030.jpg.adapt.crop3x2.1455w.jpg 1320w, https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-city-sc02-sh030.jpg.adapt.crop16x9.1920w.jpg 1456w"
+        />
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<ea-elements-loader elements="ea-html5-video">
+</ea-elements-loader>
+<ea-html5-video
+    slot="html5-video"
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        webm-src="https://media.contentapi.ea.com/content/dam/need-for-speed/videos/2017/09/nfsp-world-environment-city-sc02-sh030-webmhd.webm"
+    
+
+    
+        mp4-src="https://media.contentapi.ea.com/content/dam/need-for-speed/videos/2017/09/nfsp-world-environment-city-sc02-sh030-mp4.mp4"
+    
+
+    
+
+    
+
+    
+        autoplay=""
+    
+
+    
+
+    
+
+    
+        loop=""
+    
+
+    
+        muted=""
+    
+
+    
+
+    
+        poster="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/09/nfsp-world-environment-city-sc02-sh030.jpg.adapt.crop16x9.jpg"
+    
+    unresolved
+>
+    
+</ea-html5-video>
+
+    
+    
+</ea-hero>
+
+<ea-elements-loader elements="ea-section">
+</ea-elements-loader>
+<ea-section
+    unresolved
+    slot="section"
+    
+    
+        type="full-bleed"
+    
+    
+        layout="100"
+    
+    
+    
+        background-color="none"
+    
+    
+    
+        background-overflow="visible"
+    
+    
+        spacing-top="medium"
+    
+    
+        spacing-bottom="medium"
+    
+    
+    
+    
+    
+>
+    
+    
+
+
+<ea-section-column
+    slot="section-column"
+    
+        indent-left=""
+    
+    
+        indent-right=""
+    
+    
+        text-align="left"
+    
+    
+    
+>
+    
+<ea-elements-loader elements="ea-subheading">
+</ea-elements-loader>
+<ea-subheading
+    unresolved
+    
+        type="ordered"
+    
+    
+        layout="small"
+    
+    
+        text-align="center"
+    
+    
+        text-color="light"
+    
+    
+    
+        title-text="Personajes principales"
+    
+    
+    
+        spacing-top="medium"
+    
+    
+        spacing-bottom="medium"
+    
+>
+    
+    
+        <h3>Personajes principales</h3>
+    
+    
+</ea-subheading>
+
+<ea-elements-loader elements="ea-grid">
+</ea-elements-loader>
+<ea-grid
+    
+
+    type="ordered"
+
+
+    tile-media-shape="rectangle"
+
+
+
+    layout="3up"
+
+
+    tile-type="vertical"
+
+
+    tile-text-align="center"
+
+
+    tile-text-color="light"
+
+
+    tile-color="none"
+
+
+
+
+
+
+
+
+    hide-brand-stroke
+
+
+
+    spacing-top="small"
+
+
+    spacing-bottom="none"
+
+
+
+
+    
+    
+    
+        tile-scrim-color="none"
+    
+    
+        tile-scrim-opacity="medium"
+    
+    tile-align="center"
+    
+    
+    
+    
+    
+    
+    
+    animate-in-order=""
+    animate-out-order=""
+    
+    unresolved
+>
+    
+    
+<ea-elements-loader elements="ea-tile">
+</ea-elements-loader>
+<ea-container
+    slot="container"
+    
+        filter-key="All"
+    
+    >
+    <ea-tile
+        unresolved
+        slot="tile"
+        style="--ea-animation-index:0"
+        
+        
+        
+        
+            media="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/10/nfsp-story-rav-2x.jpg.adapt.crop16x9.652w.jpg"
+        
+        
+        
+        
+        
+            title-text="Ravindra Chaudhry (Rav)"
+        
+        
+        
+        
+        
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    >
+        
+            <h3>Ravindra Chaudhry (Rav)</h3>
+        
+        
+        
+        
+        <ea-tile-copy slot="copy">
+        
+            <p>Rav es el genio mecánico de la banda. Aunque casi nunca sale de su taller, deja que la banda use su garaje del desierto y les ayuda a tunear sus coches.</p>
+        
+        </ea-tile-copy>
+        
+        
+            
+        
+        
+    </ea-tile>
+</ea-container>
+
+<ea-elements-loader elements="ea-tile">
+</ea-elements-loader>
+<ea-container
+    slot="container"
+    
+        filter-key="All"
+    
+    >
+    <ea-tile
+        unresolved
+        slot="tile"
+        style="--ea-animation-index:1"
+        
+        
+        
+        
+            media="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/10/nfsp-story-lina-2x.jpg.adapt.crop16x9.652w.jpg"
+        
+        
+        
+        
+        
+            title-text="Lina Navarro"
+        
+        
+        
+        
+        
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    >
+        
+            <h3>Lina Navarro</h3>
+        
+        
+        
+        
+        <ea-tile-copy slot="copy">
+        
+            <p>Lina Navarro es la representante de La Casa en el mundillo de las carreras callejeras. Aunque es una de las pilotos con mejor técnica del valle Fortune, prefiere estar al mando del cotarro y dar órdenes a los demás.</p>
+        
+        </ea-tile-copy>
+        
+        
+            
+        
+        
+    </ea-tile>
+</ea-container>
+
+<ea-elements-loader elements="ea-tile">
+</ea-elements-loader>
+<ea-container
+    slot="container"
+    
+        filter-key="All"
+    
+    >
+    <ea-tile
+        unresolved
+        slot="tile"
+        style="--ea-animation-index:2"
+        
+        
+        
+        
+            media="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/10/nfsp-story-gambler-2x.jpg.adapt.crop16x9.652w.jpg"
+        
+        
+        
+        
+        
+            title-text="Marcus Weir (el Tahúr)"
+        
+        
+        
+        
+        
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    >
+        
+            <h3>Marcus Weir (el Tahúr)</h3>
+        
+        
+        
+        
+        <ea-tile-copy slot="copy">
+        
+            <p>Marcus Weir es el mayor depredador de los casinos de Silver Rock. Le gusta el riesgo y jugársela con apuestas imposibles. Ha llegado a lo más alto del valle Fortune gracias a su valentía y su ingenio.</p>
+        
+        </ea-tile-copy>
+        
+        
+            
+        
+        
+    </ea-tile>
+</ea-container>
+
+    
+
+
+</ea-grid>
+
+
+    <div>
+        <a id="buy-nfs-payback"></a>
+    </div>
+
+
+</ea-section-column>
+
+    
+</ea-section>
+
+<ea-elements-loader elements="ea-modal">
+</ea-elements-loader>
+<ea-modal
+    modal
+    unresolved
+    
+        id="payback"
+    
+    
+        theme="light"
+    
+    
+        type="full-bleed"
+    
+>
+    
+<ea-elements-loader elements="ea-youtube">
+</ea-elements-loader>
+<ea-youtube
+    unresolved
+    slot="youtube"
+    video-id="HLSVT4G2B3Q"
+    
+    
+        playlist=""
+    
+    
+    
+        default-age-gate=""
+    
+    theme="light"
+    icon-theme="light"
+    autoplay="0"
+    controls="1"
+    rel="0"
+    annotations="1"
+    hide-info="0"
+    age-gate-alignment="center-left"
+    age-gate-message="Este video tiene restricción de edad y solo está disponible en YouTube."
+    more-link-text="Más información"
+    more-link-url="https://support.google.com/youtube/answer/2802167?hl=es"
+    watch-link-text="Ver en YouTube"
+    
+        cover-image-smallest="https://media.contentapi.ea.com/content/dam/needforspeed-18/videos/2017/06/762983c2-c4b8-08c5-e2f0-d48f841fb45e.youtube/subassets/poster.jpg.adapt.crop16x9.320w.jpg"
+        cover-image-small="https://media.contentapi.ea.com/content/dam/needforspeed-18/videos/2017/06/762983c2-c4b8-08c5-e2f0-d48f841fb45e.youtube/subassets/poster.jpg.adapt.crop16x9.767w.jpg"
+        cover-image-medium="https://media.contentapi.ea.com/content/dam/needforspeed-18/videos/2017/06/762983c2-c4b8-08c5-e2f0-d48f841fb45e.youtube/subassets/poster.jpg.adapt.crop16x9.1023w.jpg"
+        cover-image-large="https://media.contentapi.ea.com/content/dam/needforspeed-18/videos/2017/06/762983c2-c4b8-08c5-e2f0-d48f841fb45e.youtube/subassets/poster.jpg.adapt.crop16x9.1455w.jpg"
+        cover-image-largest="https://media.contentapi.ea.com/content/dam/needforspeed-18/videos/2017/06/762983c2-c4b8-08c5-e2f0-d48f841fb45e.youtube/subassets/poster.jpg.adapt.crop16x9.1920w.jpg"
+        cover-image-tooltip=""
+        button-color="light"
+    
+>
+    
+    
+        
+            
+                
+        <div itemscope itemtype="http://schema.org/VideoObject">
+            <link itemprop="url" href="https://www.youtube.com/watch?v=HLSVT4G2B3Q">
+            
+                <link itemprop="thumbnailUrl" href="https://media.contentapi.ea.com/content/dam/needforspeed-18/videos/2017/06/762983c2-c4b8-08c5-e2f0-d48f841fb45e.youtube/subassets/poster.jpg.adapt.crop16x9.1920w.jpg">
+            
+            <iframe src="https://www.youtube.com/embed/HLSVT4G2B3Q"></iframe>
+        </div>
+    
+            
+        
+    
+</ea-youtube>
+
+</ea-modal>
+
+
+
+
+
+
+    
+    <div style="display: none;"></div>
+</main>
+<footer role="contentinfo">
+    
+
+    
+        
+            
+                
+<ea-elements-loader elements="ea-local-footer, ea-local-links, ea-local-link, ea-social-links, ea-social-link, ea-hybrid-regional-rating">
+</ea-elements-loader>
+<ea-local-footer
+    theme="light"
+    sal-game-slug="need-for-speed-payback"
+    rating-lang="es"
+    unresolved
+>
+    <ea-local-links
+        slot="local-links"
+        title-text="Need for Speed"
+        text-color="light"
+        unresolved
+    >
+    
+        <ea-local-link
+            slot="local-link"
+            link-url="/es-es/games/need-for-speed/need-for-speed-payback"
+            link-title="Inicio"
+            link-text="Inicio"
+            text-color="light"
+            unresolved
+        >
+            <a
+                href="/es-es/games/need-for-speed/need-for-speed-payback"
+                title="Inicio"
+            >Inicio</a>
+        </ea-local-link>
+    
+        <ea-local-link
+            slot="local-link"
+            link-url="https://forums.needforspeed.com"
+            link-title="Foros"
+            link-text="Foros"
+            text-color="light"
+            unresolved
+        >
+            <a
+                href="https://forums.needforspeed.com"
+                title="Foros"
+            >Foros</a>
+        </ea-local-link>
+    
+        <ea-local-link
+            slot="local-link"
+            link-url="/es-es/games/need-for-speed/need-for-speed-payback#buy-nfs-payback"
+            link-title="COMPRAR YA"
+            link-text="COMPRAR YA"
+            text-color="light"
+            unresolved
+        >
+            <a
+                href="/es-es/games/need-for-speed/need-for-speed-payback#buy-nfs-payback"
+                title="COMPRAR YA"
+            >COMPRAR YA</a>
+        </ea-local-link>
+    
+    </ea-local-links>
+
+    <ea-social-links
+        slot="social-links"
+        text-color="light"
+        title-text="MÁS SOBRE NEED FOR SPEED"
+        unresolved
+    >
+    
+        <ea-social-link
+            slot="social-link"
+            link-url="https://www.facebook.com/needforspeed.es"
+            link-title="Facebook"
+            link-target="_blank"
+            text-color="light"
+            social-network="facebook"
+            unresolved
+        >
+            <a
+                href="https://www.facebook.com/needforspeed.es"
+                title="Facebook"
+            >facebook</a>
+        </ea-social-link>
+    
+        <ea-social-link
+            slot="social-link"
+            link-url="http://twitter.com/NeedforSpeed_ES"
+            link-title="Twitter"
+            link-target="_blank"
+            text-color="light"
+            social-network="twitter"
+            unresolved
+        >
+            <a
+                href="http://twitter.com/NeedforSpeed_ES"
+                title="Twitter"
+            >twitter</a>
+        </ea-social-link>
+    
+        <ea-social-link
+            slot="social-link"
+            link-url="https://www.youtube.com/needforspeed"
+            link-title="YouTube"
+            link-target="_blank"
+            text-color="light"
+            social-network="youtube"
+            unresolved
+        >
+            <a
+                href="https://www.youtube.com/needforspeed"
+                title="YouTube"
+            >youtube</a>
+        </ea-social-link>
+    
+        <ea-social-link
+            slot="social-link"
+            link-url="https://www.instagram.com/needforspeed/"
+            link-title="Instagram"
+            link-target="_blank"
+            text-color="light"
+            social-network="instagram"
+            unresolved
+        >
+            <a
+                href="https://www.instagram.com/needforspeed/"
+                title="Instagram"
+            >instagram</a>
+        </ea-social-link>
+    
+    </ea-social-links>
+
+    
+
+    
+        
+<ea-elements-loader elements="ea-rating-link">
+</ea-elements-loader>
+<ea-rating-link
+    unresolved
+    slot="rating-link"
+    link-url="http://www.pegi.info/"
+    link-title="PEGI rating"
+    
+    
+        image-smallest="https://media.contentapi.ea.com/content/dam/eacom/en-us/common/agerating-pegi-12.jpg"
+        image-small="https://media.contentapi.ea.com/content/dam/eacom/en-us/common/agerating-pegi-12.jpg"
+        image-medium="https://media.contentapi.ea.com/content/dam/eacom/en-us/common/agerating-pegi-12.jpg"
+        image-large="https://media.contentapi.ea.com/content/dam/eacom/en-us/common/agerating-pegi-12.jpg"
+        image-largest="https://media.contentapi.ea.com/content/dam/eacom/en-us/common/agerating-pegi-12.jpg"
+        image-alt=""
+        
+        
+    
+>
+    <a
+        href="http://www.pegi.info/"
+        title="PEGI rating"
+    ></a>
+</ea-rating-link>
+
+    
+
+    
+<ea-elements-loader elements="ea-hybrid-regional-rating"></ea-elements-loader>
+
+<ea-hybrid-regional-rating
+    
+    
+        slug="need-for-speed-payback"
+    
+    
+        slot="regional-rating"
+    
+    
+        lang="es"
+    
+>
+</ea-hybrid-regional-rating>
+
+
+    
+        <ea-legal-disclaimer-text slot="legal-disclaimer-text">
+            <p>© 2022 Electronic Arts Inc.</p>
+
+        </ea-legal-disclaimer-text>
+    
+</ea-local-footer>
+
+            
+        
+    
+
+
+    
+
+    
+        
+            
+                
+<ea-elements-loader elements="ea-network-footer, ea-network-legal, ea-link, ea-content-loader">
+</ea-elements-loader>
+<ea-network-footer
+    theme="dark"
+    
+    
+        logo-image="https://media.contentapi.ea.com/content/dam/eacom/en-us/common/october-ea-ring.png"
+        logo-tooltip=""
+    
+    
+        logo-link-url="/es-es"
+        logo-link-text="EA"
+        logo-link-tooltip="EA"
+    
+    unresolved
+>
+    
+        <img
+            src="https://media.contentapi.ea.com/content/dam/eacom/en-us/common/october-ea-ring.png"
+            alt=""
+        />
+    
+    
+        
+            <ea-link
+                slot="link"
+                link-href="/es-es/games"
+                link-title="EXPLORAR JUEGOS"
+                link-text="EXPLORAR JUEGOS"
+                text-color="dark"
+                unresolved
+            >
+                <a
+                    href="/es-es/games"
+                    title="EXPLORAR JUEGOS"
+                >EXPLORAR JUEGOS</a>
+            </ea-link>
+        
+            <ea-link
+                slot="link"
+                link-href="/es-es/news"
+                link-title="ÚLTIMAS NOTICIAS"
+                link-text="ÚLTIMAS NOTICIAS"
+                text-color="dark"
+                unresolved
+            >
+                <a
+                    href="/es-es/news"
+                    title="ÚLTIMAS NOTICIAS"
+                >ÚLTIMAS NOTICIAS</a>
+            </ea-link>
+        
+            <ea-link
+                slot="link"
+                link-href="https://help.ea.com/es"
+                link-title="CENTRO DE AYUDA"
+                link-text="CENTRO DE AYUDA"
+                text-color="dark"
+                unresolved
+            >
+                <a
+                    href="https://help.ea.com/es"
+                    title="CENTRO DE AYUDA"
+                >CENTRO DE AYUDA</a>
+            </ea-link>
+        
+            <ea-link
+                slot="link"
+                link-href="/es-es/forums"
+                link-title="EA Foros"
+                link-text="EA Foros"
+                text-color="dark"
+                unresolved
+            >
+                <a
+                    href="/es-es/forums"
+                    title="EA Foros"
+                >EA Foros</a>
+            </ea-link>
+        
+            <ea-link
+                slot="link"
+                link-href="https://www.ea.com/es-es/sobre-ea"
+                link-title="Sobre EA"
+                link-text="Sobre EA"
+                text-color="dark"
+                unresolved
+            >
+                <a
+                    href="https://www.ea.com/es-es/sobre-ea"
+                    title="Sobre EA"
+                >Sobre EA</a>
+            </ea-link>
+        
+            <ea-link
+                slot="link"
+                link-href="http://careers.ea.com"
+                link-title="Careers"
+                link-text="Trabaja en EA"
+                text-color="dark"
+                unresolved
+            >
+                <a
+                    href="http://careers.ea.com"
+                    title="Careers"
+                >Trabaja en EA</a>
+            </ea-link>
+        
+    
+    <ea-elements-loader elements="ea-regional-pricing-selector">
+</ea-elements-loader>
+<ea-regional-pricing-selector
+slot="regional-pricing-selector"
+theme="dark"
+label-text="Regional de Precios"
+
+unresolved
+    >
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="AT"
+    >Austria</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="BE"
+    >Bélgica</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="BG"
+    >Bulgaria</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="HR"
+    >Croacia</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="CY"
+    >Chipre</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="CZ"
+    >República Checa</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="DK"
+    >Dinamarca</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="EE"
+    >Estonia</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="FI"
+    >Finlandia</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="FR"
+    >Francia</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="DE"
+    >Alemania</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="GR"
+    >Grecia</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="HU"
+    >Hungría</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="IS"
+    >Islandia</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="IE"
+    >Irlanda</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="IT"
+    >Italia</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="LV"
+    >Letonia</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="LI"
+    >Liechtenstein</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="LT"
+    >Lituania</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="LU"
+    >Luxemburgo</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="MT"
+    >Malta</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="NL"
+    >Países Bajos</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="NO"
+    >Noruega</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="PL"
+    >Polonia</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="PT"
+    >Portugal</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="RO"
+    >Rumanía</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="SK"
+    >Eslovenia</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="ES"
+    >España</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="SE"
+    >Suecia</ea-regional-pricing-selector-option>
+
+    <ea-regional-pricing-selector-option
+    slot="regional-pricing-selector-option"
+    value="CH"
+    >Suiza</ea-regional-pricing-selector-option>
+
+</ea-regional-pricing-selector>
+    
+<ea-elements-loader elements="ea-locale-selector">
+</ea-elements-loader>
+<ea-locale-selector
+    slot="locale-selector"
+    theme="dark"
+    value="es-es"
+    label-text="Idioma"
+    
+    unresolved
+    >
+    
+        <ea-locale-selector-option
+            slot="locale-selector-option"
+            value="es-es"
+        >España</ea-locale-selector-option>
+    
+        <ea-locale-selector-option
+            slot="locale-selector-option"
+            value="en-us"
+        >United States</ea-locale-selector-option>
+    
+        <ea-locale-selector-option
+            slot="locale-selector-option"
+            value="en-gb"
+        >United Kingdom</ea-locale-selector-option>
+    
+        <ea-locale-selector-option
+            slot="locale-selector-option"
+            value="en-au"
+        >Australia</ea-locale-selector-option>
+    
+        <ea-locale-selector-option
+            slot="locale-selector-option"
+            value="fr-fr"
+        >France</ea-locale-selector-option>
+    
+        <ea-locale-selector-option
+            slot="locale-selector-option"
+            value="de-de"
+        >Deutschland</ea-locale-selector-option>
+    
+        <ea-locale-selector-option
+            slot="locale-selector-option"
+            value="it-it"
+        >Italia</ea-locale-selector-option>
+    
+        <ea-locale-selector-option
+            slot="locale-selector-option"
+            value="ja-jp"
+        >日本</ea-locale-selector-option>
+    
+        <ea-locale-selector-option
+            slot="locale-selector-option"
+            value="pt-br"
+        >Brasil</ea-locale-selector-option>
+    
+        <ea-locale-selector-option
+            slot="locale-selector-option"
+            value="ru-ru"
+        >Россия</ea-locale-selector-option>
+    
+        <ea-locale-selector-option
+            slot="locale-selector-option"
+            value="cs-cz"
+        >Ceska Republika</ea-locale-selector-option>
+    
+        <ea-locale-selector-option
+            slot="locale-selector-option"
+            value="en-ca"
+        >Canada (English)</ea-locale-selector-option>
+    
+        <ea-locale-selector-option
+            slot="locale-selector-option"
+            value="fr-ca"
+        >Canada (Français)</ea-locale-selector-option>
+    
+        <ea-locale-selector-option
+            slot="locale-selector-option"
+            value="da-dk"
+        >Danmark</ea-locale-selector-option>
+    
+        <ea-locale-selector-option
+            slot="locale-selector-option"
+            value="fi-fi"
+        >Suomi</ea-locale-selector-option>
+    
+        <ea-locale-selector-option
+            slot="locale-selector-option"
+            value="es-mx"
+        >Mexico</ea-locale-selector-option>
+    
+        <ea-locale-selector-option
+            slot="locale-selector-option"
+            value="nl-nl"
+        >Nederland</ea-locale-selector-option>
+    
+        <ea-locale-selector-option
+            slot="locale-selector-option"
+            value="nb-no"
+        >Norge</ea-locale-selector-option>
+    
+        <ea-locale-selector-option
+            slot="locale-selector-option"
+            value="sv-se"
+        >Sverige</ea-locale-selector-option>
+    
+        <ea-locale-selector-option
+            slot="locale-selector-option"
+            value="zh-cn"
+        >中国</ea-locale-selector-option>
+    
+</ea-locale-selector>
+
+    <ea-network-legal
+        slot="network-legal"
+        copyright-text="© 2022 Electronic Arts Inc."
+        text-color="dark"
+        unresolved
+    >
+        
+            <ea-link
+                slot="link"
+                link-href="http://www.ea.com/es/legal"
+                link-title="Privacidad y avisos legales"
+                link-text="Privacidad y avisos legales"
+                text-color="dark"
+                unresolved
+            >
+                <a
+                    href="http://www.ea.com/es/legal"
+                    title="Privacidad y avisos legales"
+                >Privacidad y avisos legales</a>
+            </ea-link>
+        
+            <ea-link
+                slot="link"
+                link-href="https://www.ea.com/es-es/service-updates"
+                link-title="Servicios Online"
+                link-text="Servicios Online"
+                text-color="dark"
+                unresolved
+            >
+                <a
+                    href="https://www.ea.com/es-es/service-updates"
+                    title="Servicios Online"
+                >Servicios Online</a>
+            </ea-link>
+        
+            <ea-link
+                slot="link"
+                link-href="https://www.ea.com/es-es/legal/user-agreement"
+                link-title="Acuerdo de usuario"
+                link-text="Acuerdo de usuario"
+                text-color="dark"
+                unresolved
+            >
+                <a
+                    href="https://www.ea.com/es-es/legal/user-agreement"
+                    title="Acuerdo de usuario"
+                >Acuerdo de usuario</a>
+            </ea-link>
+        
+            <ea-link
+                slot="link"
+                link-href="https://www.ea.com/es-es/legal/privacy-and-cookie-policy"
+                link-title="Política de privacidad y directiva de cookies"
+                link-text="Política de privacidad y directiva de cookies"
+                text-color="dark"
+                unresolved
+            >
+                <a
+                    href="https://www.ea.com/es-es/legal/privacy-and-cookie-policy"
+                    title="Política de privacidad y directiva de cookies"
+                >Política de privacidad y directiva de cookies</a>
+            </ea-link>
+        
+        <ea-content-loader
+            slot="link"
+            content-url="https://www.ea.com/ccpa/footer-link"
+        >
+        </ea-content-loader>
+        
+    </ea-network-legal>
+    
+<ea-elements-loader elements="ea-truste">
+</ea-elements-loader>
+
+
+<script async>
+
+        function createElement(id, hidden) {
+            const element = document.createElement("div");
+
+            element.id = id;
+            element.hidden = hidden;
+
+            return element;
+        }
+
+        function createScriptTag() {
+            const script = document.createElement("script");
+            let src = `//consent.trustarc.com/notice?domain=ea.com&c=teconsent&js=nj&noticeType=bb&text=true&gtm=1`;
+
+            if (shouldAutoShowCookiePreferences()) {
+                src = src + "&behavior=expressed";
+            }
+
+            script.src = src;
+            script.setAttribute("crossorigin", "");
+
+            return script;
+        }
+
+        function shouldAutoShowCookiePreferences() {
+            const showCookiePreferencesParam = "show=cookiePreferences";
+            const urlSearchParams = window.location.search.slice(1).split("&");
+
+            return urlSearchParams.includes(showCookiePreferencesParam);
+        }
+
+        function isLocalNDS(componentUrlPrefix) {
+            return componentUrlPrefix && componentUrlPrefix.includes('local');
+        }
+
+        function isNDSBranch(componentUrlPrefix) {
+            return componentUrlPrefix && componentUrlPrefix.includes('branch');
+        }
+
+        function isNDSVersionGreaterOrEqual(componentUrlPrefix) {
+            let ndsVersion = componentUrlPrefix && componentUrlPrefix.match('/release\/([^\/]*)/')[1];
+            let isGreaterOrEqual = ndsVersion && ndsVersion.localeCompare("4.40.5", undefined, { numeric: true, sensitivity: 'base' });
+
+            return isGreaterOrEqual >= 0;
+        }
+
+        const componentUrlPrefix = window.nds.componentUrlPrefix;
+
+        /**
+         * Check for backwards compatibility with NDS version greater or equal to when TrustArc was integrated
+         */
+        if (
+            isLocalNDS(componentUrlPrefix) ||
+            isNDSBranch(componentUrlPrefix) ||
+            isNDSVersionGreaterOrEqual(componentUrlPrefix)
+        )
+        {
+            const trustArcScript = createScriptTag();
+            const elements = document.createDocumentFragment();
+
+            elements.appendChild(createElement("consent_blackbar", false));
+            elements.appendChild(createElement("teconsent", true));
+            elements.appendChild(trustArcScript);
+
+            document.body.appendChild(elements);
+        }
+
+</script>
+<ea-truste
+    unresolved
+    slot="truste"
+    
+        domain="ea.com"
+    
+>
+    <div>
+        
+            <a href="//privacy.truste.com/privacy-seal/validation?rid=2f34dc1e-352e-4e6b-a874-f24f66560d3c&amp;lang=es" target="_blank">
+                <img style="border: none" src="//privacy-policy.truste.com/privacy-seal/seal?rid=073b349c-87a4-4995-908b-71d2e3a1339c" alt="TRUSTe"/>
+            </a>
+        
+    </div>
+</ea-truste>
+
+</ea-network-footer>
+
+            
+        
+    
+
+
+</footer>
+<ea-player player-endpoint="/user-data"></ea-player>
+
+
+    
+        
+            
+                
+<ea-elements-loader elements="ea-modal">
+</ea-elements-loader>
+<ea-modal
+    modal
+    unresolved
+    
+        id="eacomagegate"
+    
+    
+        theme="dark"
+    
+    
+>
+    
+<ea-elements-loader elements="ea-age-gate">
+</ea-elements-loader>
+<ea-age-gate
+    unresolved
+    slot="age-gate"
+    id="eacomagegate"
+    
+        age="18"
+    
+    
+        error="No tienes acceso para ver este contenido."
+    
+    
+    
+        message="Indica tu fecha de nacimiento. "
+    
+>
+    
+        
+<ea-elements-loader elements="ea-date-field">
+</ea-elements-loader>
+<ea-date-field
+    
+        slot="date-field"
+    
+    
+        type="date"
+    
+    
+    
+    
+    
+    
+        text-color="light"
+    
+    
+    
+        month-placeholder="MM"
+    
+    
+        day-placeholder="DD"
+    
+    
+        year-placeholder="AAAA"
+    
+    
+    
+        label-text="Introduce tu fecha de nacimiento."
+    
+    
+    
+    unresolved
+>
+</ea-date-field>
+
+    
+    
+        
+<ea-elements-loader elements="ea-submit">
+</ea-elements-loader>
+<ea-submit
+    unresolved
+    
+        slot="submit"
+    
+    
+        value-text="Enviar"
+    
+    
+        text-color="light"
+    
+    
+    
+></ea-submit>
+
+    
+</ea-age-gate>
+
+</ea-modal>
+
+            
+        
+    
+
+
+
+
+    
+        
+            
+                <script src="//pl.ea.com/release/4.46.3/elements/browser-support.min.js"></script>
+<script>
+    eaBrowserSupport.requiredFeatures = 'picture';
+    eaBrowserSupport.requiredHeading = 'Lo sentimos, este navegador no es compatible';
+    eaBrowserSupport.requiredText = 'Descarga un navegador compatible para visualizar esta página web.';
+    eaBrowserSupport.recommendedFeatures = 'cssgrid';
+    eaBrowserSupport.recommendedText = 'No se recomienda el uso de este navegador, la página web podría no mostrarse correctamente.';
+    eaBrowserSupport.ctas = [{"text":"Descargar Chrome","url":"https://www.google.com/chrome/"},{"text":"Descargar Firefox","url":"https://www.mozilla.org/firefox/new/"},{"text":"Descargar Edge","url":"https://www.microsoft.com/edge/"}];
+    eaBrowserSupport.dismissText = 'Cerrar';
+    eaBrowserSupport.svgLogo = '';
+    eaBrowserSupport.init();
+</script>
+
+            
+        
+    
+
+
+
+
+    <ea-type-kit kit-url="//use.typekit.net/txn1klh.js"></ea-type-kit>
+
+
+    <noscript><img src="https://www.ea.com/akam/13/pixel_517099d7?a=dD01ZTBlYTdhZDg2OTEzYzZlYTM1ZjIxMTYyNWNiMGJhN2FlNTQ1NTNkJmpzPW9mZg==" style="visibility: hidden; position: absolute; left: -999px; top: -999px;" /></noscript></body>
+</html>
+

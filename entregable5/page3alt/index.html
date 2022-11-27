@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="flex col">
+      <div class="flex justify-sb ph-10">
+        <a href="/index.html">
+          <div class="w30 logo flex align-center">
+            <img
+              class="icon"
+              src="../assets/icons/joystick-svgrepo-com.svg"
+
+              alt="GameLogo"
+            />
+            <h2>OGames</h2>
+          </div>
+        </a>
+        <div class="flex w30 menu justify-end align-center">
+          
+            <button id="searchButton" >
+              <img
+                src="../assets/icons/search-svgrepo-com.svg"
+                class="icon white"
+                alt=""
+              />
+          
+          
+          
+            <button id="MenuButton">
+              <img
+                class="icon white"
+                src="../assets/icons/menu-svgrepo-com.svg"
+                alt="Menu Button"
+              />
+            </button>
+          
+        </div>
+        </div>
+      </div>
+      <div id="OverlayMenu" class="backdrop absolute flex justify-fe invisible">
+        <div class="flex col sidebar p-10">
+          <div class="flex justify-fe h10 p-10">
+            
+            <img
+              src="../assets/icons/close-svgrepo-com.svg"
+              class="icon white"
+              id="CloseSidebarMenuButton"
+              alt="close sidebar"
+            />
+          
+          </div>
+          
+          <div class="flex col align-center h90 justify-se">
+            <div class="flex col align-center">
+              <img
+                src="../assets/icons/profile-user-svgrepo-com.svg"
+                class="icon-xl white"
+                alt=""
+              />
+              <h2 class="p-10">Peter96</h2>
+            </div>
+            <div>
+              <ul>
+                <li class="flex align-center p-10">
+                  <img
+                    src="../assets/icons/soonwithrightarrow-svgrepo-com.svg"
+                    class="icon-md white ph-10"
+                    alt=""
+                  />
+                  <h2>Upcoming Games</h2>
+                </li>
+                <li class="flex align-center p-10">
+                  <img
+                    src="../assets/icons/ox-game-svgrepo-com.svg"
+                    class="icon-md white ph-10"
+                    alt=""
+                  />
+                  <h2>Categories</h2>
+                </li>
+                <li class="flex align-center p-10">
+                  <img
+                    src="../assets/icons/myspace-svgrepo-com.svg"
+                    class="icon-md white ph-10"
+                    alt=""
+                  />
+                  <h2>Friends</h2>
+                </li>
+                <li class="flex align-center p-10">
+                  <img
+                    src="../assets/icons/question-svgrepo-com.svg"
+                    class="icon-md grayscale ph-10"
+                    alt=""
+                  />
+                  <h2>Help</h2>
+                </li>
+                <li class="flex align-center p-10">
+                  <img
+                    src="../assets/icons/settings-svgrepo-com.svg"
+                    class="icon-md white ph-10"
+                    alt=""
+                  />
+                  <h2>Settings</h2>
+                </li>
+              </ul>
+            </div>
+            <div class="flex justify-center">
+              <button
+                class="logOutButton p-10 flex align-center justify-center br-10"
+              >
+                <h2 class="ph-10">Log Out</h2>
+              </button>
+            </div>
+            <div class="flex w50 justify-center">
+              <ul class="flex w80 justfify-sa">
+                <li>
+                  <a href=""
+                    ><img
+                      class="icon white"
+                      src="../assets/icons/instagram-svgrepo-com.svg"
+                      alt="Instagram"
+                  /></a>
+                </li>
+                <li>
+                  <a href=""
+                    ><img
+                      class="icon white"
+                      src="../assets/icons/facebook-svgrepo-com.svg"
+                      alt="Facebook"
+                  /></a>
+                </li>
+                <li>
+                  <a href=""
+                    ><img
+                      class="icon white"
+                      src="../assets/icons/twitter-logo-svgrepo-com.svg"
+                      alt="Twitter"
+                  /></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main id="main" class="game-sections-container">
+      <a class="section-controller up z-3">
+        <img
+          src="/assets/icons/left-arrow-svgrepo-com.svg"
+          class="icon-xl white absolute rotated-90"
+          alt=""
+        />
+      </a>
+      <section class="game-section" id="first">
+        <h1 class="absolute thin">Outer Worlds</h1>
+        <img src="/assets/new-game/first-img.png" class="h100 w100" alt="" />
+      </section>
+      <section class="game-section relative" id="second">
+        <img src="../assets/new-game/second-img.png" class="h100 w100" alt="" />
+        <h1 class="absolute smaller  t-25 l-5">
+          Meet Ralph!
+        </h1>
+        <img src="../assets/new-game/ralph-blue.png" class="absolute ralph" alt="">
+        <h2 class="absolute w50 centered m-5 mv-5p">This is Ralph, a six year old boy with autism disorder and a wild imagination.
+           Follow him as he dissociates from reality into outer space journeys and help him
+            learn some stuff on the way</h2>
+      </section>
+      <section class="game-section" id="third">
+        <div class="flex newGameSection relative w100">
+          <div class="spaceSection">
+            <div class="spaceSectionImage imageBlue scrollable">
+              <img
+                src="/assets/new-game/spaceship.svg"
+                class="z-2 sticky"
+                alt=""
+              />
+            </div>
+            <img
+              src="/assets/new-game/ralph.png"
+              class="z-2 sticky ralph"
+              alt=""
+            />
+          </div>
+        </div>
+      </section>
+      <section class="game-section" id="fourth">
+        <div class="flex newGameSection relative w100">
+          <h1 class="absolute smaller w50 t-15 l-5">Make new friends along the way</h1>
+          <img src="/assets/new-game/dessert-bg.png" class="h100 w100" alt="" />
+          <div class="absolute w100 h100 flex">
+            <div class="flex w100v align-center">
+              <img
+                src="/assets/new-game/Ralph-yellow.png"
+                class="ralph alight-self-end"
+                alt=""
+              />
+            </div>
+            <div class="flex align-center">
+              <img src="/assets/new-game/tiptipspaceship.png" class="h70 " alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="game-section" id="fifth">
+        <div class="flex newGameSection relative w100">
+          <div class="spaceSection">
+            <div class="spaceSectionImage imageRed scrollable">
+              <img
+                src="/assets/new-game/spaceship.svg"
+                class="z-2 sticky"
+                alt=""
+              />
+            </div>
+            <img
+              src="/assets/new-game/ralph.png"
+              class="z-2 sticky ralph rotated-20"
+              alt=""
+            />
+            <img
+              src="/assets/new-game/tiptip.png"
+              class="z-2 sticky tiptip"
+              alt=""
+            />
+          </div>
+        </div>
+      </section>
+      <section class="game-section" id="sixth">
+        <div class="flex newGameSection gallerySection relative w100">
+          <h1 class="absolute smaller finalmessage">
+            Explore places like never before!
+          </h1>
+          <img
+            src="/assets/new-game/gamegallerybg.png"
+            class="h100 w100"
+            alt=""
+          />
+          <div class="flex absolute w100 h100 align-center justify-center ">
+            <div class="flex wrap spaceGallery">
+              <div class="flex relative to-right-1">
+                <div class="hover-point"></div>
+                <div class="hover-point"></div>
+                <div class="hover-point"></div>
+                <div class="hover-point"></div>
+                <div class="hover-point"></div>
+                <div class="hover-point"></div>
+                <div class="hover-point"></div>
+                <div class="hover-point"></div>
+                <div class="gamecard">
+                  <div class="gamecardImage">
+                    <img
+                      src="../assets/new-game/locations/blue.jpg"
+                      alt="Sekiro "
+                      class="gameImage"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="flex relative to-left-2">
+                <div class="hover-point"></div>
+                <div class="hover-point"></div>
+                <div class="hover-point"></div>
+                <div class="hover-point"></div>
+                <div class="hover-point"></div>
+                <div class="hover-point"></div>
+                <div class="hover-point"></div>
+                <div class="hover-point"></div>
+                <div class="gamecard">
+                  <div class="gamecardImage">
+                    <img
+                      src="../assets/new-game/locations/violet.jpg"
+                      alt="Sekiro "
+                      class="gameImage"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="flex relative to-right-3">
+                <div class="hover-point"></div>
+                <div class="hover-point"></div>
+                <div class="hover-point"></div>
+                <div class="hover-point"></div>
+                <div class="hover-point"></div>
+                <div class="hover-point"></div>
+                <div class="hover-point"></div>
+                <div class="hover-point"></div>
+                <div class="gamecard">
+                  <div class="gamecardImage">
+                    <img
+                      src="../assets/new-game/locations/green.jpg"
+                      src="../"
+                      alt="Sekiro "
+                      class="gameImage"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="flex relative to-left-4">
+                <div class="hover-point"></div>
+                <div class="hover-point"></div>
+                <div class="hover-point"></div>
+                <div class="hover-point"></div>
+                <div class="hover-point"></div>
+                <div class="hover-point"></div>
+                <div class="hover-point"></div>
+                <div class="hover-point"></div>
+                <div class="gamecard">
+                  <div class="gamecardImage">
+                    <img
+                      src="../assets/new-game/locations/pink.jpg"
+                      alt="Sekiro "
+                      class="gameImage"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="game-section relative" id="seventh">
+        <div class="flex newGameSection gallerySection relative w100">
+          <h1 class="absolute smaller finalmessage">
+            Buid amazing Knowledge-Ships!
+          </h1>
+          <img
+            src="/assets/new-game/gamegallerybg.png"
+            class="h100 w100"
+            alt=""
+          />
+          <div class="flex absolute w100 h100 align-center justify-center">
+            <div class="flex wrap  h80 w80 align-fe justify-center">
+              <img src="../assets/new-game/gallery/spaceships.png" class="h70 w60" alt="">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="game-section relative" id="eight">
+          <h1 class="absolute smaller w75 finalmessage">
+            And grow till you no longer need the Outer Worlds
+          </h1>
+          <img src="/assets/new-game/finalimg.png" class="h100 w100" alt="" />
+          <div class="flex justify-center absolute trailerbutton">
+            <div class="text-box">
+              <a href="../page2/index.html" class="btn  btn-white btn-animate translate--50"><h2 class="ph-10">Play Demo!</h2></a>
+            </div>
+          </div>
+      </section>
+
+      <a class="section-controller z-3 down"
+        ><img
+          src="/assets/icons/left-arrow-svgrepo-com.svg"
+          class="icon-xl white absolute rotated-270"
+          alt=""
+      /></a>
+    </main>
+    <footer class="flex justify-sb">
+      <div class="footer-form w40 flex col justfify-sa align-center desktop">
+        <h3>Subscribe to the Newsletter</h3>
+        <div>
+          <form action="">
+            <input type="text" placeholder="Place your email here" />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="division-line"></div>
+      <div class="flex justify-se min-w60">
+        <div class="footer-section text-center">
+          <h3>About Us</h3>
+          <ul>
+            <li><a href="">Team Members</a></li>
+            <li><a href="">Other Projects</a></li>
+            <li><a href="">Our Mission</a></li>
+            <li><a href="">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="division-line"></div>
+        <div class="footer-section text-center">
+          <h3>Policy</h3>
+          <ul>
+            <li><a href="">Sale</a></li>
+            <li><a href="">Purchases</a></li>
+            <li><a href="">Regret Button</a></li>
+            <li><a href="">Refunds</a></li>
+          </ul>
+        </div>
+        <div class="division-line"></div>
+        <div class="footer-section text-center">
+          <h3>Other</h3>
+          <ul>
+            <li><a href="">FAQ's</a></li>
+            <li><a href="">Terms</a></li>
+            <li><a href="">Security</a></li>
+            <li><a href="">FeedBack</a></li>
+          </ul>
+        </div>
+        <div class="division-line"></div>
+        <div
+          class="footer-section footer-links flex col justfify-se align-center"
+        >
+          <ul>
+            <li>
+              <a href=""
+                ><img
+                  class="icon white"
+                  src="/assets/icons/instagram-svgrepo-com.svg"
+                  alt="Instagram"
+              /></a>
+            </li>
+            <li>
+              <a href=""
+                ><img
+                  class="icon white"
+                  src="/assets/icons/facebook-svgrepo-com.svg"
+                  alt="Facebook"
+              /></a>
+            </li>
+            <li>
+              <a href=""
+                ><img
+                  class="icon white"
+                  src="/assets/icons/twitter-logo-svgrepo-com.svg"
+                  alt="Twitter"
+              /></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script src="../scripts/page3alt.js"></script>
+  </body>
+</html>
