@@ -15,7 +15,7 @@
     <title>Document</title>
   </head>
   <body class="flex col">
-    <nav class="flex col">
+    <nav id="NavBar" class="flex col">
       <div class="flex justify-sb ph-10">
         <a href="../index.html">
           <div class="w30 logo flex align-center">
@@ -24,7 +24,7 @@
               src="../assets/icons/joystick-svgrepo-com.svg"
               alt="GameLogo"
             />
-            <h2>OGames</h2>
+            <h2 class="siteTitle">OGames</h2>
           </div>
         </a>
         <div class="flex w30 menu justify-end align-center">
@@ -35,35 +35,20 @@
                 class="icon white"
                 alt=""
               />
-          
-          
-          
-            <button id="MenuButton">
-              <img
-                class="icon white"
-                src="../assets/icons/menu-svgrepo-com.svg"
-                alt="Menu Button"
-              />
             </button>
+              <div id="MenuButton">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
           
         </div>
         </div>
       </div>
       <div id="OverlayMenu" class="backdrop absolute flex justify-fe invisible">
         <div class="flex col sidebar p-10">
-          <div class="flex justify-fe h10 p-10">
-            
-            <img
-              src="../assets/icons/close-svgrepo-com.svg"
-              class="icon white"
-              id="CloseSidebarMenuButton"
-              alt="close sidebar"
-            />
-          
-          </div>
-          
           <div class="flex col align-center h90 justify-se">
-            <div class="flex col align-center">
+            <div class="flex col align-center ">
               <img
                 src="../assets/icons/profile-user-svgrepo-com.svg"
                 class="icon-xl white"
@@ -71,8 +56,8 @@
               />
               <h2 class="p-10">Peter96</h2>
             </div>
-            <div>
-              <ul>
+            <div >
+              <ul class="nav-menu-items">
                 <li class="flex align-center p-10">
                   <img
                     src="../assets/icons/soonwithrightarrow-svgrepo-com.svg"
